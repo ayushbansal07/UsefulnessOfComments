@@ -1,0 +1,132 @@
+ReadMe
+
+Prerequisities
+
+sudo -H pip install graphviz
+
+sudo -H pip install statistics
+
+ sudo -H pip install editdistance
+
+
+srijoni@srijoni-HP-Pavilion-g6-Notebook-PC:~/Desktop/DCUBE_N/project/ann/ann_last/starvation$ ssh -X srijoni@10.72.22.92
+srijoni@10.72.22.92's password: 
+Last login: Tue Apr 30 23:32:20 2019 from 10.145.222.1
+[srijoni@node1 ~]$ cd ../../../../data/Harsha/Complete\ Dump/ParserCheck/
+
+
+
+sftp://srijoni@10.72.22.92/data/Harsha/Complete%20Dump/ParserCheck/XML_buildCategories.py
+sftp://srijoni@10.72.22.92/data/Harsha/Complete%20Dump/ParserCheck/XML_BuildCatForBunch.py
+sftp://srijoni@10.72.22.92/data/Harsha/Complete%20Dump/ParserCheck/XML_ClubFiles.py
+sftp://srijoni@10.72.22.92/data/Harsha/Complete%20Dump/ParserCheck/XML_GetExcelForBunch.py
+sftp://srijoni@10.72.22.92/data/Harsha/Complete%20Dump/ParserCheck/XML_getFeatures.py
+sftp://srijoni@10.72.22.92/data/Harsha/Complete%20Dump/ParserCheck/XML_getFinalFeatures.py
+sftp://srijoni@10.72.22.92/data/Harsha/Complete%20Dump/ParserCheck/XML_CommentExtractor.py
+sftp://srijoni@10.72.22.92/data/Harsha/Complete%20Dump/ParserCheck/XML_FinalExcelGeneration.py
+
+sftp://srijoni@10.72.22.92/data/Harsha/Complete%20Dump/ParserCheck/XML_GetExcelForAFolder.py
+sftp://srijoni@10.72.22.92/data/Harsha/Complete%20Dump/ParserCheck/XML_merge3CSV.py
+sftp://srijoni@10.72.22.92/data/Harsha/Complete%20Dump/ParserCheck/XML_merge4CSV.py
+sftp://srijoni@10.72.22.92/data/Harsha/Complete%20Dump/ParserCheck/XML_ScopeModule.py
+sftp://srijoni@10.72.22.92/data/Harsha/Complete%20Dump/ParserCheck/XML_ScriptChangeFeaturesRunModel.py
+
+
+Files:
+	sftp://srijoni@10.72.22.92/data/Harsha/Complete%20Dump/ParserCheck/XML_GetExcelForAFile.py 
+	sudo python2 XML_GetExcelForAFile.py 
+	Give 5 arguments: filename, vocab dictionary location, problem domain location, xml file location, absolute source code location - 		in this order
+Here the absolute source code location is the path for the source code starting from the main folder. For Eg: if you are running Projects/useless_data/greedy.c For a XML_folder being run on useless_data 
+
+example run:    [srijoni@node1 ParserCheck]$ sudo python2 XML_GetExcelForAFile.py Projects/useless_data/greedy.c Identifier/program_domain.csv Projects/useless_data/problem_domain.txt Projects/useless_data_clang/greedy_clang.xml useless_data/greedy.c
+
+
+sudo python2 XML_GetExcelForAFile.py Projects/libpng-code/pngwio.c Identifier/program_domain.csv Projects/libpng-code/problem_domain.txt Projects/libpng-code_xml/pngwio_clang.xml libpng-code/pngwio.c
+
+
+pngwio_clang
+
+pngwio
+
+Desktop/HARSH_MTP1/CODES FINAL/Projects/libpng-code
+
+HARSH_MTP1/CODES FINAL/Projects/libpng-code_xml
+
+
+
+
+
+
+	XML_CommentExtractor
+	Extracts comments given a C/C++ File.
+        Output: "comments.p"
+	
+	XML_ScopeModule.py
+        Input: "comments.p"
+	Gets the scope of all the comments in the C/C++ file
+        Output: "scope.p"	
+	
+	Identifier/xmlparser.py
+	os.chdir("Identifier/")
+        x = os.system("python2 xmlparser.py ../" + xmlfilename + " " +  cfilename + " ../" + vocab_loc + " ../" + prob_loc
+	Extracts Identifiers from the file
+	Input : xmlfilename - location of the xmlfile
+		cfilename - location of the C file
+		vocab_loc - Vocabulary location
+		prob_loc - Problem domain location
+	
+
+sudo python2 xmlparser.py ../Projects/libpng-code_xml/pngread_clang.xml libpng-code/pngread.c program_domain.csv ../Projects/libpng-code/problem_domain.txt
+	
+        XML_FinalExcelGeneration.py
+	Forms mapping b/w Comment tokens and Identifier tokens
+	Input : cfilename - location of the C file
+		vocab_loc - Vocabulary location
+		prob_loc - Problem domain location
+	Output : knowledge_base.csv
+
+	FeatureDescOp/classify.py	
+	os.chdir("FeatureDescOp/")
+        x = os.system("python2 classify.py ../knowledge_base.csv")
+        os.chdir("../")
+	CLassifies comments to Descriptive, Operative and Conditional
+	Input : Knowledge_base.csv
+	
+	finalWrite.py
+	Writes the final excel(knowledge_base + desc_op) into CSV/*fname*_excel.csv 
+	
+	XML_getFeatures.py
+	Gets numerical features from the CSV/*fname*_excel.. only comments
+	Input : CSV/*fname*_excel..
+	Output : CSV/*fname*_features..
+	
+	XML_getFinalFeatures.py
+	Gets Final Features along with mousam's features. All the weight handling is done here.
+	output: CSV_*fname*_train.csv - This contains the trainable data.
+
+XML_GetExcelForAFolder: Runs for a folder
+
+Clubbing mechanisms:
+	XML_BuildCatForBunch : 
+	Input : List of [CSV/*fname*_excel.csv]
+	Output : Runs getFeatures and getFinalFeatures for all the files
+	
+	
+	XML_ClubFiles:	
+	Clubs the trainind datas of all the files given as input in a file
+	
+	XML_merge3CSV, XML_merge4CSV - merges 3 and 4 CSV files respectively
+
+Models/check.py, Models/models.py runs all ML models
+
+
+
+
+The XML files should have the project folder in the path location
+
+"/home/spandan/KGP/BTP/final_tool/libpng-code/png.c[4009]"
+
+
+
+
+sudo python2 XML_GetExcelForAFolder.py DATA/Projects/libpng-code/ Identifier/program_domain.csv DATA/Projects/libpng-code/problem_domain.txt DATA/Projects/libpng-code_xml/ DATA/Projects/libpng-code/

@@ -102,3 +102,16 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+*.pdf
+*.zip
+CSV/
+DATA/
+Projects/
+StanFordParser/
+*.p
+*.csv
+*.c
+*.tar.gz
+*.cpp
+
