@@ -114,4 +114,5 @@ StanFordParser/
 *.c
 *.tar.gz
 *.cpp
+*.xlsx
 
