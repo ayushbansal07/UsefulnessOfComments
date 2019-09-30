@@ -29,9 +29,9 @@ if __name__ == "__main__":
 	else :
 		fName = fName1 + ".p"
 	print(fName)
-	# if os.path.exists("CSV/" + filename.replace("/", "_") + "_train.csv"):
-	# 	print("Skipping: ",fName)
-	# 	exit(0)
+	if os.path.exists("CSV/" + filename.replace("/", "_") + "_train.csv"):
+		print("Skipping: ",fName)
+		exit(0)
 	try :
 		x = os.system("python2 XML_CommentExtractor.py " + filename)
 		print("CommentExtractor " + str(x))

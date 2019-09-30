@@ -115,4 +115,5 @@ StanFordParser/
 *.tar.gz
 *.cpp
 *.xlsx
-
+*.png
+nohup.out

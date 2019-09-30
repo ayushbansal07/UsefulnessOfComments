@@ -123,18 +123,33 @@ def getFeatures(fname):
 		feature.append(getCount(line[5], "]["))
 		feature.append(getCount(line[6], "|||"))
 		
-		num_desc = float(numDescriptional(line[16]))
-		num_op = float(numOperational(line[16]))
+		try:
+			num_desc = float(numDescriptional(line[16]))
+		except:
+			num_desc = 0
+		try:
+			num_op = float(numOperational(line[16]))
+		except:
+			num_op = 0
 		feature.append(num_desc * 0.9 + num_op * 0.1)
 		feature.append(num_op * 0.9 + num_desc * 0.1)
 		
-		feature.append(len(re.findall("True", line[17])))
+		try:
+			feature.append(len(re.findall("True", line[17])))
+		except:
+			feature.append(0)
 		type_info = getIdTypeInfo(line[8], line[10], int(line[4].split(":")[0]))		
 		feature.append(type_info[0] + type_info[1] + type_info[2])		
 		feature.extend(type_info)
 		feature.append(getCommentLines(line[4]))
-		feature.append(getCount(line[13], "|||"))
-		feature.append(getCount(line[14], "|||"))
+		try:
+			feature.append(getCount(line[13], "|||"))
+		except:
+			feature.append(0)
+		try:
+			feature.append(getCount(line[14], "|||"))
+		except:
+			feature.append(0)
 		libcopyinfo = getLibraryCopyrightInfo(line[2])
 		feature.extend(libcopyinfo)
 		

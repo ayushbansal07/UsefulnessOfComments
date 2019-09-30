@@ -1,0 +1,52 @@
+Step 1 - 
+	From the Annotated Category data (and intuitive labels), generate a file which contains Calculated Labels.
+	Also, for the examples where intuitive label != calculated label, mark the diffs.
+	Command - 
+		python GetLabelsFromAnnotatedClasses.py <Annotated file name (should be present at path ANNOTATED/DATA/)> <project name>
+	Example - 
+		python GetLabelsFromAnnotatedClasses.py comments_libpng_all_marked.xlsx libpng
+	Outputs - 
+		1. New data file with Calculated Labels also generated at DATA/GENERATED/<Annotated file name> (Eg. DATA/GENERATED/comments_libpng_all_marked.xlsx)
+		2. Rule diffs count file. Contains row wise distribution. Generated at DATA/ANNOTATED/rule_diffs/<project name>.csv (Eg. DATA/ANNOTATED/rule_diffs/libpng.csv)
+		3. All comments with separate sheets for separate mismatch cases. Generated at DATA/ANNOTATED/rule_diffs/<Annotated file name> (Eg. DATA/ANNOTATED/rule_diffs/comments_libpng_all_marked.xlsx)
+
+Step 2 -
+	Prepare Training Data from the file generated in step 1 (Calculated Labels file).
+	Command - 
+		python PrepareTrainingData.py <Features Directory> <Annotations File (Calculated Labels)> <Project Name> <Label Type (cal/int/calint)>
+			NOTE -  The 4th argument can be only one of these 3 -> a) cal (use calculated labels), b) int (use intuitive labels),
+	        		c) calint (use calculated labels but only for examples for which intuitive are present)
+	Example - 	
+		python PrepareTrainingData.py DATA/CSV/ DATA/GENERATED/comments_libpng_all_marked.xlsx libpng cal 
+	Outputs - 
+		1. Training Data Features (X) File. Generated at DATA/GENERATED/TRAIN/X_train_<project name>_<Label Type>.csv (Eg. DATA/GENERATED/TRAIN/X_train_libpng_cal.csv)
+		2. Training Data Labels (Y) File. Generated at DATA/GENERATED/TRAIN/Y_train_<project name>_<Label Type>.csv (Eg. DATA/GENERATED/TRAIN/Y_train_libpng_cal.csv)
+
+Step 3 -
+	Run ML Models & Clustering
+	Command - 
+		python Models.py <output summary file name> <num train files to merge (n)> <space separated n files name>
+			NOTE - The n space separated file names which we give should exclude the prefix X_/Y_. Eg. if we want to give the file generated in step 2 as one of the files to merge, then it's file name will be given as "train_libpng_cal.csv".
+	Example -
+		python Models.py summary_calint_handcrafted.csv 4 train_libpng_calint.csv train_dealii_calint.csv train_server_calint.csv handcrafted.csv
+	Outputs - 
+		1. Analysis file for SVM and ANN Generated at ANALYSIS/<output summary file name> (Eg. ANALYSIS/summary_calint_handcrafted.csv)
+		2. Runs clustering and prints the counts of all clusters. NOTE: This info is just printed on terminal (at the end) and not saved anywhere.
+
+Step 4 -
+	Generate Correlation Matrix
+	Command (Similar to step 3) - 
+		python ML_Analysis.py <output png file name> <num train files to merge (n)> <space separated n files name>
+	Exmaple - 
+		python ML_Analysis.py correlation_handcrafted_calint.png 4 train_libpng_calint.csv train_dealii_calint.csv train_server_calint.csv handcrafted.csv
+	Outputs - 
+		1. Correlation matrix plot generated at ANALYSIS/<output png file name> (Eg. ANALYSIS/correlation_handcrafted_calint.png)
+
+
+
+
+Summarised 4 commands to run -
+python GetLabelsFromAnnotatedClasses.py comments_libpng_all_marked.xlsx libpng
+python PrepareTrainingData.py DATA/CSV/ DATA/GENERATED/comments_libpng_all_marked.xlsx libpng cal
+python Models.py summary_calint_handcrafted.csv 4 train_libpng_calint.csv train_dealii_calint.csv train_server_calint.csv handcrafted.csv
+python ML_Analysis.py correlation_handcrafted_calint.png 4 train_libpng_calint.csv train_dealii_calint.csv train_server_calint.csv handcrafted.csv
