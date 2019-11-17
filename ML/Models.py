@@ -64,18 +64,6 @@ def runSVM_CV(x, y):
     clf = svm.SVC(kernel='linear', C=1,max_iter=1000000)
     return cross_val_predict(clf, x, y,cv=5),y 
 
-# preds, test = runSVM_CV(train_x, train_y)
-# print("SVM: ")
-# print("Precision Recall FScore")
-# print(precision_recall_fscore_support(test, preds))
-# print("Accuracy: ")
-# print(accuracy_score(test,preds))
-# print("Num Label 1, 2, 3 in Test")
-# print(np.sum(test==1), np.sum(test==2), np.sum(test==3))
-# print("Num Label 1, 2, 3 in Predictions")
-# print(np.sum(preds==1), np.sum(preds==2), np.sum(preds==3))
-# print("------------------------------------------------------------------------------")
-
 def run_ann_CV(x,y):
     print("Running ANN....")
     perm = np.random.permutation(len(x))
@@ -85,65 +73,54 @@ def run_ann_CV(x,y):
                         hidden_layer_sizes=(20, 8), random_state=1)
     return cross_val_predict(clf, x, y,cv=5),y 
 
-# preds, test = run_ann_CV(train_x, train_y)
-# print("ANN: ")
-# print("Precision Recall FScore")
-# print(precision_recall_fscore_support(test, preds))
-# print("Accuracy: ")
-# print(accuracy_score(test,preds))
-# print("Num Label 1, 2, 3 in Test")
-# print(np.sum(test==1), np.sum(test==2), np.sum(test==3))
-# print("Num Label 1, 2, 3 in Predictions")
-# print(np.sum(preds==1), np.sum(preds==2), np.sum(preds==3))
-# print("------------------------------------------------------------------------------")
 
+# preds_svm, test_svm = runSVM_CV(train_x, train_y)
+# pr_svm = precision_recall_fscore_support(test_svm, preds_svm)
+# mpr_svm = precision_recall_fscore_support(test_svm, preds_svm,average='weighted')
+# print("MPR SVM -> ",mpr_svm)
+# preds_ann, test_ann = run_ann_CV(train_x, train_y)
+# pr_ann = precision_recall_fscore_support(test_ann, preds_ann)
+# mpr_ann = precision_recall_fscore_support(test_ann, preds_ann,average='weighted')
 
-preds_svm, test_svm = runSVM_CV(train_x, train_y)
-pr_svm = precision_recall_fscore_support(test_svm, preds_svm)
-mpr_svm = precision_recall_fscore_support(test_svm, preds_svm,average='micro')
-preds_ann, test_ann = run_ann_CV(train_x, train_y)
-pr_ann = precision_recall_fscore_support(test_ann, preds_ann)
-mpr_ann = precision_recall_fscore_support(test_ann, preds_ann,average='micro')
+# import csv
+# #OUTPUT_FILE_NAME = "ANALYSIS/summary_cal_handcrafted.csv"
+# OUTPUT_FILE_NAME = "ANALYSIS/" + OUTPUT_FILE
+# with open(OUTPUT_FILE_NAME,'w') as f:
+#     writer = csv.writer(f)
+#     writer.writerow(["Feature","SVM","ANN"])
+#     writer.writerow([])
+#     writer.writerow(["Num True Label 1",np.sum(test_svm==1),np.sum(test_ann==1)])
+#     writer.writerow(["Num True Label 2",np.sum(test_svm==2),np.sum(test_ann==2)])
+#     writer.writerow(["Num True Label 3",np.sum(test_svm==3),np.sum(test_ann==3)])
+#     writer.writerow([])
+#     writer.writerow(["Num Predicted Label 1",np.sum(preds_svm==1),np.sum(preds_ann==1)])
+#     writer.writerow(["Num Predicted Label 2",np.sum(preds_svm==2),np.sum(preds_ann==2)])
+#     writer.writerow(["Num Predicted Label 3",np.sum(preds_svm==3),np.sum(preds_ann==3)])
+#     writer.writerow([])
+#     writer.writerow(["Accuracy",accuracy_score(test_svm,preds_svm),accuracy_score(test_ann, preds_ann)])
+#     writer.writerow(["Precision",mpr_svm[0],mpr_ann[0]])
+#     writer.writerow(["Recall",mpr_svm[1],mpr_ann[1]])    
+#     writer.writerow(["F1",mpr_svm[2],mpr_ann[2]])  
+#     writer.writerow([])
+#     writer.writerow(["Precision for Label 1",pr_svm[0][0],pr_ann[0][0]])
+#     writer.writerow(["Precision for Label 2",pr_svm[1][0],pr_ann[1][0]])    
+#     writer.writerow(["Precision for Label 3",pr_svm[2][0],pr_ann[2][0]])    
+#     writer.writerow([])
+#     writer.writerow(["Recall for Label 1",pr_svm[0][1],pr_ann[0][1]])
+#     writer.writerow(["Recall for Label 2",pr_svm[1][1],pr_ann[1][1]])    
+#     writer.writerow(["Recall for Label 3",pr_svm[2][1],pr_ann[2][1]])
+#     writer.writerow([])
+#     writer.writerow(["F1 for Label 1",pr_svm[0][2],pr_ann[0][2]])
+#     writer.writerow(["F1 for Label 2",pr_svm[1][2],pr_ann[1][2]])    
+#     writer.writerow(["F1 for Label 3",pr_svm[2][2],pr_ann[2][2]])
 
-import csv
-#OUTPUT_FILE_NAME = "ANALYSIS/summary_cal_handcrafted.csv"
-OUTPUT_FILE_NAME = "ANALYSIS/" + OUTPUT_FILE
-with open(OUTPUT_FILE_NAME,'w') as f:
-    writer = csv.writer(f)
-    writer.writerow(["Feature","SVM","ANN"])
-    writer.writerow([])
-    writer.writerow(["Num True Label 1",np.sum(test_svm==1),np.sum(test_ann==1)])
-    writer.writerow(["Num True Label 2",np.sum(test_svm==2),np.sum(test_ann==2)])
-    writer.writerow(["Num True Label 3",np.sum(test_svm==3),np.sum(test_ann==3)])
-    writer.writerow([])
-    writer.writerow(["Num Predicted Label 1",np.sum(preds_svm==1),np.sum(preds_ann==1)])
-    writer.writerow(["Num Predicted Label 2",np.sum(preds_svm==2),np.sum(preds_ann==2)])
-    writer.writerow(["Num Predicted Label 3",np.sum(preds_svm==3),np.sum(preds_ann==3)])
-    writer.writerow([])
-    writer.writerow(["Accuracy",accuracy_score(test_svm,preds_svm),accuracy_score(test_ann, preds_ann)])
-    writer.writerow(["Micro Precision",mpr_svm[0],mpr_ann[0]])
-    writer.writerow(["Micro Recall",mpr_svm[1],mpr_ann[1]])    
-    writer.writerow(["Micro F1",mpr_svm[2],mpr_ann[2]])  
-    writer.writerow([])
-    writer.writerow(["Precision for Label 1",pr_svm[0][0],pr_ann[0][0]])
-    writer.writerow(["Precision for Label 2",pr_svm[1][0],pr_ann[1][0]])    
-    writer.writerow(["Precision for Label 3",pr_svm[2][0],pr_ann[2][0]])    
-    writer.writerow([])
-    writer.writerow(["Recall for Label 1",pr_svm[0][1],pr_ann[0][1]])
-    writer.writerow(["Recall for Label 2",pr_svm[1][1],pr_ann[1][1]])    
-    writer.writerow(["Recall for Label 3",pr_svm[2][1],pr_ann[2][1]])
-    writer.writerow([])
-    writer.writerow(["F1 for Label 1",pr_svm[0][2],pr_ann[0][2]])
-    writer.writerow(["F1 for Label 2",pr_svm[1][2],pr_ann[1][2]])    
-    writer.writerow(["F1 for Label 3",pr_svm[2][2],pr_ann[2][2]])
-
-print("Analysis file for SVM and ANN Generated at - ",OUTPUT_FILE_NAME)
+# print("Analysis file for SVM and ANN Generated at - ",OUTPUT_FILE_NAME)
 
 
 
 
 #Clustering
-kmeans = KMeans(n_clusters=4, random_state=0).fit(train_x)
+kmeans = KMeans(n_clusters=2, random_state=0).fit(train_x)
 lbls = kmeans.labels_
 print("Clustering Labels Counts")
 print(np.sum(lbls==0), np.sum(lbls==1), np.sum(lbls==2), np.sum(lbls==3))
