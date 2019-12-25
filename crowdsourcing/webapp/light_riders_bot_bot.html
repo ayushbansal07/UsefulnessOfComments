@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>What a comment!</title>
+    <link href="./styles/prism.css" rel="stylesheet" />
+    <link href="./styles/form.css" rel="stylesheet" />
+  </head>
+    <style>
+	.btnc {
+
+	    background-color: #1e7ef4;
+	    border: none;
+	    color: white;
+	    padding: 8px 12px;
+	    text-align: center;
+	    font-size: 12px;
+	    font-weight: bold;
+	    margin: 4px 2px;
+	    opacity: 0.6;
+	    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+	    transition: 0.4s;
+	  }
+
+	  .btnc:hover {opacity: 1}
+	  </style>
+  <body>
+
+  	<div class="form-popup" id="myForm">
+	  <form action="/action_page.php" class="form-container" onsubmit="return postToGoogle();">
+
+      <label for="emailField"><b>Email id</b></label>
+      <input type="email" id="emailField" name="emailField" required><br>
+
+	    <label for="commentUsefulness"><b>This comment is </b></label>
+	    <input id="commentUseful" type="radio" name="commentUsefulness" value="U" required> Useful
+		<input id="commentNotUseful" type="radio" name="commentUsefulness" value="NU" required> Useless
+    <input id="commentPartialUseful" type="radio" name="commentUsefulness" value="PU" required> Partially Useful<br>
+
+	    <label for="commentView"></label>
+	    <input id="commentView" type="text" placeholder="Why do you think so?" name="commentView" required>
+
+	    <label for="commentAlternate"></label>
+	    <textarea id="commentAlternate" type="text" placeholder="If you would have written a comment for that portion of the code, what would you have written? (optional)" name="commentAlternate" style="height:100px;"></textarea> 
+
+	    <button type="submit" class="btn">Submit</button>
+	    <button id="closeFormButton" type="reset" class="btn cancel" onclick="closeForm()">Close</button>
+	  </form>
+	</div>
+
+
+  	<script src="./javascript/prism.js"></script>
+  	<pre>
+  		<table>
+  			<!--start-->
+<div hidden id="commentCodeID">light_riders_bot_bot</div><tr>
+<td><pre><code class="language-c"># Use the game by - pip install git+https://github.com/wonderworks-software/PyFlow.git@master </code></pre></td>
+<td><button class="btnc" type="button" id="comment1" onclick="openForm(this.id)">Comment 1</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">class Bot: </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    def __init__(self): </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">        self.game = None </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">        self.last_move = None </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    def setup(self, game): </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">        self.game = game </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    """ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    returns the next possible position of the my bot based on the given direction </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    """ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    def next_pos(self, direction, pos=None): </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">        if direction == "up": </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">            if pos is None: </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                return self.game.my_player().row - 1, self.game.my_player().col </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">            else: </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                row, col = pos </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                return row - 1, col </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">        elif direction == "down": </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">            if pos is None: </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                return self.game.my_player().row + 1, self.game.my_player().col </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">            else: </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                row, col = pos </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                return row + 1, col </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">        elif direction == "left": </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">            if pos is None: </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                return self.game.my_player().row, self.game.my_player().col - 1 </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">            else: </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                row, col = pos </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                return row, col - 1 </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">        elif direction == "right": </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">            if pos is None: </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                return self.game.my_player().row, self.game.my_player().col + 1 </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">            else: </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                row, col = pos </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                return row, col + 1 </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    """ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    applies the flood fill algorithm for the given position </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    """ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    def flood_use(self, position): </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">        visited = [] </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">        return self.flood_fill(position, visited) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    """ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    flood fill algorithm implementation. </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    Returns the count of legal boxes on our field for the given position </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    """ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    def flood_fill(self, position, visited): </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">        row, col = position </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">        # if we are out of bounds </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">        # or have already visited the current position </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">        # or can't visit this box </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">        if row &lt; 0 or col &lt; 0 or row > self.game.field_width - 1 or \ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                        col > self.game.field_height - 1 or position in visited \ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                or not self.game.field.is_legal_tuple(position, self.game.my_botid): </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">            return 0  # count is 0 </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">        visited.append(position)  # mark current position as visited </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">        # get position count recursively from the current box till the end </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">        # or an illegal box </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">        return 1 + self.flood_fill((row - 1, col), visited) \ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">               + self.flood_fill((row + 1, col), visited) \ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">               + self.flood_fill((row, col - 1), visited) \ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">               + self.flood_fill((row, col + 1), visited) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    def do_turn(self): </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">        my_row = self.game.my_player().row </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">        my_col = self.game.my_player().col </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">        legal = self.game.field.legal_moves(self.game.my_botid, self.game.players) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">        print(legal) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">        # with open('log.txt', 'a') as file: </code></pre></td>
+<td><button class="btnc" type="button" id="comment2" onclick="openForm(this.id)">Comment 2</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">        #     file.write("Round: " + str(self.game.round) + " Begin!\n" + "length of legal_dirs: " + str(len(legal)) + "\n") </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">        if len(legal) == 0: </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">            desired_direction = "pass" </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">        else: </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">            # remove useless tuples from legal var </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">            legal_dirs = []  # legal directions (legal moves w/o the tuples) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">            for _, direction in legal: </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                legal_dirs.append(direction) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">            # if on first round </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">            # just head to the nearest wall </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">            if self.game.round == 0: </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                # calculate distances from each wall </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                dist_to_walls = {} </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                dist_to_walls["up"] = my_row </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                dist_to_walls["down"] = self.game.field_height - my_col </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                dist_to_walls["left"] = my_col </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                dist_to_walls["right"] = self.game.field_width - my_row </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                # find min distance </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                desired_direction = min(dist_to_walls, key=dist_to_walls.get) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">            # if not on first round </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">            else: </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                # TODO Maybe add dead end check? (only needed when next move is "pass") </code></pre></td>
+<td><button class="btnc" type="button" id="comment3" onclick="openForm(this.id)">Comment 3</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                # TODO Maybe can add it before issue_order_pass </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                # Remove unallowed moves (it seems that is_legal wasn't good enough) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                if self.last_move == "up": </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                    try: </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                        # legal_dirs.remove("up") </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                        legal_dirs.remove("down") </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                    except ValueError: </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                        pass </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                elif self.last_move == "down": </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                    try: </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                        # legal_dirs.remove("down") </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                        legal_dirs.remove("up") </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                    except ValueError: </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                        pass </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                elif self.last_move == "left": </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                    try: </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                        # legal_dirs.remove("left") </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                        legal_dirs.remove("right") </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                    except ValueError: </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                        pass </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                elif self.last_move == "right": </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                    try: </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                        # legal_dirs.remove("right") </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                        legal_dirs.remove("left") </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                    except ValueError: </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                        pass </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                # Check if any immediate neighbor square is illegal move and remove it </code></pre></td>
+<td><button class="btnc" type="button" id="comment4" onclick="openForm(this.id)">Comment 4 (LAST)</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                my_id = self.game.my_botid </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                if not self.game.field.is_legal_tuple((my_row - 1, my_col), my_id): </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                    try: </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                        legal_dirs.remove("up") </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                    except ValueError: </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                        pass </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                if not self.game.field.is_legal_tuple((my_row + 1, my_col), my_id): </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                    try: </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                        legal_dirs.remove("down") </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                    except ValueError: </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                        pass </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                if not self.game.field.is_legal_tuple((my_row, my_col - 1), my_id): </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                    try: </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                        legal_dirs.remove("left") </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                    except ValueError: </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                        pass </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                if not self.game.field.is_legal_tuple((my_row, my_col + 1), my_id): </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                    try: </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                        legal_dirs.remove("right") </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                    except ValueError: </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                        pass </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                if len(legal_dirs) == 1: </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                    desired_direction = legal_dirs[0] </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                # Flood fill count in 2 directions to find max space and make the move </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                # that leads there </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                elif len(legal_dirs) == 2: </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                    first_move = legal_dirs[0] </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                    second_move = legal_dirs[1] </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                    first_move_next = self.next_pos(first_move) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                    second_move_next = self.next_pos(second_move) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                    next_moves_counts = {} </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                    next_moves_counts[first_move] = self.flood_use(first_move_next) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                    next_moves_counts[second_move] = self.flood_use(second_move_next) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                    if next_moves_counts[first_move] == next_moves_counts[second_move]: </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                        next_moves_dists = {} </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                        next_moves_dists[first_move] = self.dist_to_obstacle(first_move) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                        next_moves_dists[second_move] = self.dist_to_obstacle(second_move) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                        desired_direction = max(next_moves_dists, key=next_moves_dists.get) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                    else: </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                        desired_direction = max(next_moves_counts, key=next_moves_counts.get) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                # Flood fill count in 3 directions to find max space and make the move </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                # that leads there </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                elif len(legal_dirs) == 3: </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                    first_move = legal_dirs[0] </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                    second_move = legal_dirs[1] </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                    third_move = legal_dirs[2] </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                    first_move_next = self.next_pos(first_move) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                    second_move_next = self.next_pos(second_move) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                    third_move_next = self.next_pos(third_move) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                    next_moves_counts = {} </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                    next_moves_counts[first_move] = self.flood_use(first_move_next) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                    next_moves_counts[second_move] = self.flood_use(second_move_next) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                    next_moves_counts[third_move] = self.flood_use(third_move_next) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                    if next_moves_counts[first_move] != next_moves_counts[second_move] or \ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                                    next_moves_counts[first_move] != next_moves_counts[third_move] or \ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                                    next_moves_counts[second_move] != next_moves_counts[third_move]: </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                        desired_direction = max(next_moves_counts, key=next_moves_counts.get) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                    else: </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                        desired_direction = self.voronoi(legal_dirs) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                else:  # this probably never comes up - not sure </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                    desired_direction = "pass" </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">        # with open('log.txt', 'a') as file: </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">        #     file.write("End: length of legal_dirs: " + str(len(legal_dirs)) + "\n") </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">        if desired_direction == "pass": </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">            self.last_move = "pass" </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">            self.game.issue_order_pass() </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">        else: </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">            self.last_move = desired_direction </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">            self.game.issue_order(desired_direction) </code></pre></td>
+</tr>
+  <!-- end -->
+  		</table>
+  		
+  		<code class="language-c">
+  		</code>
+  	</pre>
+  </body>
+</html>
+<script async src="./javascript/index.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

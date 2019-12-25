@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My webpage!</title>
+    <link href="./styles/prism.css" rel="stylesheet" />
+    <link href="./styles/form.css" rel="stylesheet" />
+  </head>
+  <body>
+
+  	<div class="form-popup" id="myForm">
+	  <form action="/action_page.php" class="form-container" onsubmit="return postToGoogle();">
+
+	    <label for="commentUsefulness"><b>This comment is </b></label>
+	    <input id="commentUseful" type="radio" name="commentUsefulness" value="U" required> Useful
+		<input id="commentNotUseful" type="radio" name="commentUsefulness" value="NU" required> Not Useful<br>
+
+	    <label for="commentView"></label>
+	    <input id="commentView" type="text" placeholder="What do you think about this comment?" name="commentView" required>
+
+	    <label for="commentAlternate"></label>
+	    <input id="commentAlternate" type="text" placeholder="Your alternative comment? (optional)" name="commentAlternate">
+
+	    <button type="submit" class="btn">Submit</button>
+	    <button id="closeFormButton" type="reset" class="btn cancel" onclick="closeForm()">Close</button>
+	  </form>
+	</div>
+
+
+  	<script src="./javascript/prism.js"></script>
+  	<pre>
+  		<table>
+        <!-- start --><tr>
+<td><code class="language-c">#include &lt;iostream> 
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">class A { 
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">private: 
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">    int a; 
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">  
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">public: 
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">    A() { a = 0; } 
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">    friend class B; // Friend Class 
+ </code></td>
+<td><button type="button" id="comment1" onclick="openForm(this.id)">Comment 1</button></td>
+</tr>
+<tr>
+<td><code class="language-c">}; 
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">  
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">class B { 
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">private: 
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">    int b; 
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">  
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">public: 
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">    void showA(A& x) 
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">    { 
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">        // Since B is friend of A, it can access 
+ </code></td>
+<td><button type="button" id="comment2" onclick="openForm(this.id)">Comment 2</button></td>
+</tr>
+<tr>
+<td><code class="language-c">        // private members of A 
+ </code></td>
+<td><button type="button" id="comment3" onclick="openForm(this.id)">Comment 3</button></td>
+</tr>
+<tr>
+<td><code class="language-c">        std::cout &lt;&lt; "A::a=" &lt;&lt; x.a; 
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">    } 
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">}; 
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">  
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">int main() 
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">{ 
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">    A a; 
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">    B b; 
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">    b.showA(a); 
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">    return 0; 
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">}  </code></td>
+</tr>
+  <!-- end -->
+  		</table>
+  		
+  		<code class="language-c">
+  		</code>
+  	</pre>
+  </body>
+</html>
+<script async src="./javascript/index.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

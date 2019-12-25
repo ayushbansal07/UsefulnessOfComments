@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>What a comment!</title>
+    <link href="./styles/prism.css" rel="stylesheet" />
+    <link href="./styles/form.css" rel="stylesheet" />
+  </head>
+    <style>
+	.btnc {
+
+	    background-color: #1e7ef4;
+	    border: none;
+	    color: white;
+	    padding: 8px 12px;
+	    text-align: center;
+	    font-size: 12px;
+	    font-weight: bold;
+	    margin: 4px 2px;
+	    opacity: 0.6;
+	    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+	    transition: 0.4s;
+	  }
+
+	  .btnc:hover {opacity: 1}
+	  </style>
+  <body>
+
+  	<div class="form-popup" id="myForm">
+	  <form action="/action_page.php" class="form-container" onsubmit="return postToGoogle();">
+
+      <label for="emailField"><b>Email id</b></label>
+      <input type="email" id="emailField" name="emailField" required><br>
+
+	    <label for="commentUsefulness"><b>This comment is </b></label>
+	    <input id="commentUseful" type="radio" name="commentUsefulness" value="U" required> Useful
+		<input id="commentNotUseful" type="radio" name="commentUsefulness" value="NU" required> Useless
+    <input id="commentPartialUseful" type="radio" name="commentUsefulness" value="PU" required> Partially Useful<br>
+
+	    <label for="commentView"></label>
+	    <input id="commentView" type="text" placeholder="Why do you think so?" name="commentView" required>
+
+	    <label for="commentAlternate"></label>
+	    <textarea id="commentAlternate" type="text" placeholder="If you would have written a comment for that portion of the code, what would you have written? (optional)" name="commentAlternate" style="height:100px;"></textarea> 
+
+	    <button type="submit" class="btn">Submit</button>
+	    <button id="closeFormButton" type="reset" class="btn cancel" onclick="closeForm()">Close</button>
+	  </form>
+	</div>
+
+
+  	<script src="./javascript/prism.js"></script>
+  	<pre>
+  		<table>
+  			<!--start-->
+<div hidden id="commentCodeID">curl_util</div><tr>
+<td><pre><code class="language-c">/*************************************************************************** </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> *                                  _   _ ____  _ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> *  Project                     ___| | | |  _ \| | </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> *                             / __| | | | |_) | | </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> *                            | (__| |_| |  _ &lt;| |___ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> *                             \___|\___/|_| \_\_____| </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> * </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> * Copyright (C) 1998 - 2019, Daniel Stenberg, &lt;daniel@haxx.se>, et al. </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> * </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> * This software is licensed as described in the file COPYING, which </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> * you should have received as part of this distribution. The terms </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> * are also available at https://curl.haxx.se/docs/copyright.html. </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> * </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> * You may opt to use, copy, modify, merge, publish, distribute and/or sell </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> * copies of the Software, and permit persons to whom the Software is </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> * furnished to do so, under the terms of the COPYING file. </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> * </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> * This software is distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> * KIND, either express or implied. </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> * </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> ***************************************************************************/ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#include "server_setup.h" </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#ifdef HAVE_SIGNAL_H </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#include &lt;signal.h> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#endif </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#ifdef HAVE_NETINET_IN_H </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#include &lt;netinet/in.h> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#endif </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#ifdef _XOPEN_SOURCE_EXTENDED </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">/* This define is "almost" required to build on HPUX 11 */ </code></pre></td>
+<td><button class="btnc" type="button" id="comment1" onclick="openForm(this.id)">Comment 1</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#include &lt;arpa/inet.h> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#endif </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#ifdef HAVE_NETDB_H </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#include &lt;netdb.h> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#endif </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#ifdef HAVE_POLL_H </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#include &lt;poll.h> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#elif defined(HAVE_SYS_POLL_H) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#include &lt;sys/poll.h> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#endif </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#ifdef __MINGW32__ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#include &lt;w32api.h> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#endif </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#define ENABLE_CURLX_PRINTF </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">/* make the curlx header define all printf() functions to use the curlx_* </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">   versions instead */ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#include "curlx.h" /* from the private lib dir */ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#include "getpart.h" </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#include "util.h" </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#include "timeval.h" </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#ifdef USE_WINSOCK </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#undef  EINTR </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#define EINTR    4 /* errno.h value */ </code></pre></td>
+<td><button class="btnc" type="button" id="comment2" onclick="openForm(this.id)">Comment 2</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#undef  EINVAL </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#define EINVAL  22 /* errno.h value */ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#endif </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">/* MinGW with w32api version &lt; 3.6 declared in6addr_any as extern, </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">   but lacked the definition */ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#if defined(ENABLE_IPV6) && defined(__MINGW32__) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#if (__W32API_MAJOR_VERSION &lt; 3) || \ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    ((__W32API_MAJOR_VERSION == 3) && (__W32API_MINOR_VERSION &lt; 6)) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">const struct in6_addr in6addr_any = {{ IN6ADDR_ANY_INIT }}; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#endif /* w32api &lt; 3.6 */ </code></pre></td>
+<td><button class="btnc" type="button" id="comment3" onclick="openForm(this.id)">Comment 3</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#endif /* ENABLE_IPV6 && __MINGW32__*/ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">static struct timeval tvnow(void); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">/* This function returns a pointer to STATIC memory. It converts the given </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> * binary lump to a hex formatted string usable for output in logs or </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> * whatever. </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> */ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">char *data_to_hex(char *data, size_t len) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">{ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  static char buf[256*3]; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  size_t i; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  char *optr = buf; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  char *iptr = data; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  if(len > 255) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    len = 255; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  for(i = 0; i &lt; len; i++) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    if((data[i] >= 0x20) && (data[i] &lt; 0x7f)) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">      *optr++ = *iptr++; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    else { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">      msnprintf(optr, 4, "%%%02x", *iptr++); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">      optr += 3; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  *optr = 0; /* in case no sprintf was used */ </code></pre></td>
+<td><button class="btnc" type="button" id="comment4" onclick="openForm(this.id)">Comment 4</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  return buf; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">} </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">void logmsg(const char *msg, ...) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">{ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  va_list ap; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  char buffer[2048 + 1]; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  FILE *logfp; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  struct timeval tv; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  time_t sec; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  struct tm *now; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  char timebuf[20]; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  static time_t epoch_offset; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  static int    known_offset; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  if(!serverlogfile) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    fprintf(stderr, "Error: serverlogfile not set\n"); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    return; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  tv = tvnow(); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  if(!known_offset) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    epoch_offset = time(NULL) - tv.tv_sec; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    known_offset = 1; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  sec = epoch_offset + tv.tv_sec; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  now = localtime(&sec); /* not thread safe but we don't care */ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  msnprintf(timebuf, sizeof(timebuf), "%02d:%02d:%02d.%06ld", </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">            (int)now->tm_hour, (int)now->tm_min, (int)now->tm_sec, </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">            (long)tv.tv_usec); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  va_start(ap, msg); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  mvsnprintf(buffer, sizeof(buffer), msg, ap); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  va_end(ap); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  logfp = fopen(serverlogfile, "ab"); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  if(logfp) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    fprintf(logfp, "%s %s\n", timebuf, buffer); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    fclose(logfp); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  else { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    int error = errno; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    fprintf(stderr, "fopen() failed with error: %d %s\n", </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">            error, strerror(error)); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    fprintf(stderr, "Error opening file: %s\n", serverlogfile); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    fprintf(stderr, "Msg not logged: %s %s\n", timebuf, buffer); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">} </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#ifdef WIN32 </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">/* use instead of perror() on generic windows */ </code></pre></td>
+<td><button class="btnc" type="button" id="comment5" onclick="openForm(this.id)">Comment 5</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">void win32_perror(const char *msg) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">{ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  char buf[512]; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  DWORD err = SOCKERRNO; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  if(!FormatMessageA((FORMAT_MESSAGE_FROM_SYSTEM | </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                      FORMAT_MESSAGE_IGNORE_INSERTS), NULL, err, </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                     LANG_NEUTRAL, buf, sizeof(buf), NULL)) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    msnprintf(buf, sizeof(buf), "Unknown error %lu (%#lx)", err, err); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  if(msg) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    fprintf(stderr, "%s: ", msg); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  fprintf(stderr, "%s\n", buf); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">} </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#endif  /* WIN32 */ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#ifdef USE_WINSOCK </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">void win32_init(void) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">{ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  WORD wVersionRequested; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  WSADATA wsaData; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  int err; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  wVersionRequested = MAKEWORD(USE_WINSOCK, USE_WINSOCK); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  err = WSAStartup(wVersionRequested, &wsaData); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  if(err != 0) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    perror("Winsock init failed"); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    logmsg("Error initialising winsock -- aborting"); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    exit(1); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  if(LOBYTE(wsaData.wVersion) != USE_WINSOCK || </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">     HIBYTE(wsaData.wVersion) != USE_WINSOCK) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    WSACleanup(); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    perror("Winsock init failed"); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    logmsg("No suitable winsock.dll found -- aborting"); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    exit(1); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">} </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">void win32_cleanup(void) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">{ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  WSACleanup(); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">} </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#endif  /* USE_WINSOCK */ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">/* set by the main code to point to where the test dir is */ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">const char *path = "."; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">char *test2file(long testno) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">{ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  static char filename[256]; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  msnprintf(filename, sizeof(filename), TEST_DATA_PATH, path, testno); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  return filename; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">} </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">/* </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> * Portable function used for waiting a specific amount of ms. </code></pre></td>
+<td><button class="btnc" type="button" id="comment6" onclick="openForm(this.id)">Comment 6</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> * Waiting indefinitely with this function is not allowed, a </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> * zero or negative timeout value will return immediately. </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> * </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> * Return values: </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> *   -1 = system call error, or invalid timeout value </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> *    0 = specified timeout has elapsed </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> */ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">int wait_ms(int timeout_ms) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">{ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#if !defined(MSDOS) && !defined(USE_WINSOCK) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#ifndef HAVE_POLL_FINE </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  struct timeval pending_tv; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#endif </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  struct timeval initial_tv; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  int pending_ms; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#endif </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  int r = 0; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  if(!timeout_ms) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    return 0; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  if(timeout_ms &lt; 0) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    errno = EINVAL; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    return -1; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#if defined(MSDOS) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  delay(timeout_ms); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#elif defined(USE_WINSOCK) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  Sleep(timeout_ms); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#else </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  pending_ms = timeout_ms; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  initial_tv = tvnow(); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  do { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    int error; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#if defined(HAVE_POLL_FINE) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    r = poll(NULL, 0, pending_ms); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#else </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    pending_tv.tv_sec = pending_ms / 1000; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    pending_tv.tv_usec = (pending_ms % 1000) * 1000; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    r = select(0, NULL, NULL, NULL, &pending_tv); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#endif /* HAVE_POLL_FINE */ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    if(r != -1) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">      break; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    error = errno; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    if(error && (error != EINTR)) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">      break; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    pending_ms = timeout_ms - (int)timediff(tvnow(), initial_tv); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    if(pending_ms &lt;= 0) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">      break; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  } while(r == -1); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#endif /* USE_WINSOCK */ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  if(r) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    r = -1; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  return r; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">} </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">int write_pidfile(const char *filename) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">{ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  FILE *pidfile; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  long pid; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  pid = (long)getpid(); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  pidfile = fopen(filename, "wb"); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  if(!pidfile) { </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    logmsg("Couldn't write pid file: %s %s", filename, strerror(errno)); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    return 0; /* fail */ </code></pre></td>
+<td><button class="btnc" type="button" id="comment7" onclick="openForm(this.id)">Comment 7 (LAST)</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  } </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  fprintf(pidfile, "%ld\n", pid); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  fclose(pidfile); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  logmsg("Wrote pid %ld to %s", pid, filename); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">  return 1; /* success */ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">} </code></pre></td>
+</tr>
+  <!-- end -->
+  		</table>
+  		
+  		<code class="language-c">
+  		</code>
+  	</pre>
+  </body>
+</html>
+<script async src="./javascript/index.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

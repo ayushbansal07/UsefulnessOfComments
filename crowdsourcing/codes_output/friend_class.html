@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>What a comment!</title>
+    <link href="./styles/prism.css" rel="stylesheet" />
+    <link href="./styles/form.css" rel="stylesheet" />
+  </head>
+    <style>
+	.btnc {
+
+	    background-color: #1e7ef4;
+	    border: none;
+	    color: white;
+	    padding: 8px 12px;
+	    text-align: center;
+	    font-size: 12px;
+	    font-weight: bold;
+	    margin: 4px 2px;
+	    opacity: 0.6;
+	    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+	    transition: 0.4s;
+	  }
+
+	  .btnc:hover {opacity: 1}
+	  </style>
+  <body>
+
+  	<div class="form-popup" id="myForm">
+	  <form action="/action_page.php" class="form-container" onsubmit="return postToGoogle();">
+
+      <label for="emailField"><b>Email id</b></label>
+      <input type="email" id="emailField" name="emailField" required><br>
+
+      <label for="nameField"><b>Full name</b></label>
+      <input type="text" name="nameField" id="nameField" required><br>
+
+      <label for="designationField"><b>Designation</b></label>
+      <input type="text" name="designationField" id="designationField" placeholder="Student / Employee" required><br>
+
+      <label for="affiliationField"><b>Affiliation</b></label>
+      <input type="text" name="affiliationField" id="affiliationField" placeholder="University / Company" required><br>
+
+	    <label for="commentUsefulness"><b>This comment is </b></label>
+	    <input id="commentUseful" type="radio" name="commentUsefulness" value="U" required> Useful
+		<input id="commentNotUseful" type="radio" name="commentUsefulness" value="NU" required> Useless
+    <input id="commentPartialUseful" type="radio" name="commentUsefulness" value="PU" required> Partially Useful<br>
+
+	    <label for="commentView"></label>
+	    <input id="commentView" type="text" placeholder="Why do you think so?" name="commentView" required>
+
+	    <label for="commentAlternate"></label>
+	    <textarea id="commentAlternate" type="text" placeholder="If you would have written a comment for that portion of the code, what would you have written? (optional)" name="commentAlternate" style="height:100px;"></textarea> 
+
+	    <button type="submit" class="btn">Submit</button>
+	    <button id="closeFormButton" type="reset" class="btn cancel" onclick="closeForm()">Close</button>
+	  </form>
+	</div>
+
+
+  	<script src="./javascript/prism.js"></script>
+  	<pre>
+  		<table>
+  			<!--start-->
+<div hidden id="commentCodeID">friend_class</div><tr>
+<td><pre><code class="language-c">#include &lt;iostream>  </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">class A {  </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">private:  </code></pre></td>
+<td><button class="btnc" type="button" id="comment1" onclick="openForm(this.id)">Comment 1</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    int a;  </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">   </code></pre></td>
+<td><button class="btnc" type="button" id="comment2" onclick="openForm(this.id)">Comment 2</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">public:  </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    A() { a = 0; }  </code></pre></td>
+<td><button class="btnc" type="button" id="comment3" onclick="openForm(this.id)">Comment 3 (LAST)</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    friend class B; // Friend Class  </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">};  </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">class B {  </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">private:  </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    int b;  </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">public:  </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    void showA(A& x)  </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    {  </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">        // Since B is friend of A, it can access  </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">        // private members of A  </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">        std::cout &lt;&lt; "A::a=" &lt;&lt; x.a;  </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    }  </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">};  </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">int main()  </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">{  </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    A a;  </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    B b;  </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    b.showA(a);  </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    return 0;  </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">}  </code></pre></td>
+</tr>
+  <!-- end -->
+  		</table>
+  		
+  		<code class="language-c">
+  		</code>
+  	</pre>
+  </body>
+</html>
+<script async src="./javascript/index.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

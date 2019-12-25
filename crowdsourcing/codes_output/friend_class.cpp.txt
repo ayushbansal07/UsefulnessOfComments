@@ -1,0 +1,122 @@
+<tr>
+<td><code class="language-c">#include &lt;iostream> 
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">class A { 
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">private: 
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">    int a; 
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">  
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">public: 
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">    A() { a = 0; } 
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">    friend class B; // Friend Class 
+ </code></td>
+<td><button type="button" id="comment1" onclick="openForm(this.id)">Comment 1</button></td>
+</tr>
+<tr>
+<td><code class="language-c">}; 
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">  
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">class B { 
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">private: 
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">    int b; 
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">  
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">public: 
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">    void showA(A& x) 
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">    { 
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">        // Since B is friend of A, it can access 
+ </code></td>
+<td><button type="button" id="comment2" onclick="openForm(this.id)">Comment 2</button></td>
+</tr>
+<tr>
+<td><code class="language-c">        // private members of A 
+ </code></td>
+<td><button type="button" id="comment3" onclick="openForm(this.id)">Comment 3</button></td>
+</tr>
+<tr>
+<td><code class="language-c">        std::cout &lt;&lt; "A::a=" &lt;&lt; x.a; 
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">    } 
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">}; 
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">  
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">int main() 
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">{ 
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">    A a; 
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">    B b; 
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">    b.showA(a); 
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">    return 0; 
+ </code></td>
+</tr>
+<tr>
+<td><code class="language-c">}  </code></td>
+</tr>

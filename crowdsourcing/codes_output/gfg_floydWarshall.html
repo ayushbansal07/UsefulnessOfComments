@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>What a comment!</title>
+    <link href="./styles/prism.css" rel="stylesheet" />
+    <link href="./styles/form.css" rel="stylesheet" />
+  </head>
+    <style>
+	.btnc {
+
+	    background-color: #1e7ef4;
+	    border: none;
+	    color: white;
+	    padding: 8px 12px;
+	    text-align: center;
+	    font-size: 12px;
+	    font-weight: bold;
+	    margin: 4px 2px;
+	    opacity: 0.6;
+	    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+	    transition: 0.4s;
+	  }
+
+	  .btnc:hover {opacity: 1}
+	  </style>
+  <body>
+
+  	<div class="form-popup" id="myForm">
+	  <form action="/action_page.php" class="form-container" onsubmit="return postToGoogle();">
+
+      <label for="emailField"><b>Email id</b></label>
+      <input type="email" id="emailField" name="emailField" required><br>
+
+	    <label for="commentUsefulness"><b>This comment is </b></label>
+	    <input id="commentUseful" type="radio" name="commentUsefulness" value="U" required> Useful
+		<input id="commentNotUseful" type="radio" name="commentUsefulness" value="NU" required> Useless
+    <input id="commentPartialUseful" type="radio" name="commentUsefulness" value="PU" required> Partially Useful<br>
+
+	    <label for="commentView"></label>
+	    <input id="commentView" type="text" placeholder="Why do you think so?" name="commentView" required>
+
+	    <label for="commentAlternate"></label>
+	    <textarea id="commentAlternate" type="text" placeholder="If you would have written a comment for that portion of the code, what would you have written? (optional)" name="commentAlternate" style="height:100px;"></textarea> 
+
+	    <button type="submit" class="btn">Submit</button>
+	    <button id="closeFormButton" type="reset" class="btn cancel" onclick="closeForm()">Close</button>
+	  </form>
+	</div>
+
+
+  	<script src="./javascript/prism.js"></script>
+  	<pre>
+  		<table>
+  			<!--start-->
+<div hidden id="commentCodeID">gfg_floydWarshall</div><tr>
+<td><pre><code class="language-c">// C++ Program for Floyd Warshall Algorithm   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#include &lt;bits/stdc++.h>  </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">using namespace std;  </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">// Number of vertices in the graph   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#define V 4   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">/* Define Infinite as a large enough  </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">value.This value will be used for   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">vertices not connected to each other */ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#define INF 99999   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">// A function to print the solution matrix   </code></pre></td>
+<td><button class="btnc" type="button" id="comment1" onclick="openForm(this.id)">Comment 1</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">void printSolution(int dist[][V]);   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">/*   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">Solves the all-pairs shortest path   </code></pre></td>
+<td><button class="btnc" type="button" id="comment2" onclick="openForm(this.id)">Comment 2</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">problem using Floyd Warshall algorithm   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">*/ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">void floydWarshall (int graph[][V])   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">{   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    /* dist[][] will be the output matrix   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    that will finally have the shortest   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    distances between every pair of vertices */ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    int dist[V][V], i, j, k;   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    /* Initialize the solution matrix same   </code></pre></td>
+<td><button class="btnc" type="button" id="comment3" onclick="openForm(this.id)">Comment 3</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    as input graph matrix. Or we can say   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    the initial values of shortest distances  </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    are based on shortest paths considering   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    no intermediate vertex. */ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    for (i = 0; i &lt; V; i++)   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">        for (j = 0; j &lt; V; j++)   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">            dist[i][j] = graph[i][j];   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    /* Add all vertices one by one to   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    the set of intermediate vertices.   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    ---> Before start of an iteration,   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    we have shortest distances between all   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    pairs of vertices such that the   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    shortest distances consider only the   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    vertices in set {0, 1, 2, .. k-1} as  </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    intermediate vertices.   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    ----> After the end of an iteration,   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    vertex no. k is added to the set of   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    intermediate vertices and the set becomes {0, 1, 2, .. k} */ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    for (k = 0; k &lt; V; k++)   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    {   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">        // Pick all vertices as source one by one   </code></pre></td>
+<td><button class="btnc" type="button" id="comment4" onclick="openForm(this.id)">Comment 4</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">        for (i = 0; i &lt; V; i++)   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">        {   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">            // Pick all vertices as destination for the   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">            // above picked source   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">            for (j = 0; j &lt; V; j++)   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">            {   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                // If vertex k is on the shortest path from   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                // i to j, then update the value of dist[i][j]   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                if (dist[i][k] + dist[k][j] &lt; dist[i][j])   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">                    dist[i][j] = dist[i][k] + dist[k][j];   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">            }   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">        }   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    }   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    // Print the shortest distance matrix   </code></pre></td>
+<td><button class="btnc" type="button" id="comment5" onclick="openForm(this.id)">Comment 5 (LAST)</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">    printSolution(dist);   </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">}   </code></pre></td>
+</tr>
+  <!-- end -->
+  		</table>
+  		
+  		<code class="language-c">
+  		</code>
+  	</pre>
+  </body>
+</html>
+<script async src="./javascript/index.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
