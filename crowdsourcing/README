@@ -1,0 +1,19 @@
+Instructions to run:
+1.  Place the code for which we have to run in codes/ folder.
+      Eg. We want to run the code for codes/friend_class.cpp
+2.  Create a file with same codename and extention as .lines which containes a "SPACE SEPARATED" list of line numbers for which we need a feedback button.
+    PLEASE NOTE that the file should not contain any trailing spaces/new line character.
+      Eg. Create a file codes/friend_class.lines
+3.  Now, run the instruction
+    python codes_to_html.py <path to code>.
+      Eg. run python codes_to_html.py codes/friend_class.cpp
+
+Output - Inside codes_output, an html file named <code_file_name>.html would be there (Eg. codes_output/friend_class.html).
+         Copy that file to webapp folder (because it contains the JS and CSS) and open html in the browser.
+
+Required files to run -
+1. codes_to_html.py
+2. pre_html.txt
+3. post_html.txt
+4. Code file
+5. Lines file
