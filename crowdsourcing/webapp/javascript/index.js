@@ -3,6 +3,7 @@ console.log(CODE_ID);
 var clickedBtn = "";
 var urlParams = new URLSearchParams(window.location.search);
 var email = urlParams.get("email");
+var submitted_buttons = []
 console.log(email);
 function openForm(btnId) {
 	if (clickedBtn != "")
@@ -16,7 +17,15 @@ function openForm(btnId) {
 }
 
 function closeForm() {
-	document.getElementById(clickedBtn).style.background = "";
+	btn = document.getElementById(clickedBtn)
+	if(submitted_buttons.indexOf(clickedBtn) != -1)
+	{
+		btn.style.background = 'green';
+	}
+	else
+	{
+		btn.style.background = '';
+	}
 	clickedBtn = "";
   document.getElementById("myForm").style.display = "none";
 }
@@ -56,6 +65,8 @@ function postToGoogle() {
 				console.log("FAL");
 				$('#success-msg').show();
 				$('#form').hide();
+				submitted_buttons.push(clickedBtn);
+				document.getElementById(clickedBtn).style.background = 'green';
 				document.getElementById("closeFormButton").click();
 				
 			}
