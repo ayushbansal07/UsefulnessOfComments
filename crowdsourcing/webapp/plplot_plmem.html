@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>What a comment!</title>
+    <title>plplot_mem</title>
     <link href="./styles/prism.css" rel="stylesheet" />
     <link href="./styles/form.css" rel="stylesheet" />
   </head>
@@ -54,120 +54,41 @@
   		<table>
   			<!--start-->
 <div hidden id="commentCodeID">plplot_plmem</div><tr>
-<td><pre><code class="language-c">/* </code></pre></td>
+<td><pre><code class="language-c"> </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">xId: plmem.c 11966 2011-10-14 07:10:05Z andrewross $ </code></pre></td>
+<td><pre><code class="language-c">//  plmem.c </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">// </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">//  Copyright (C) 1992, 1993, 1994, 1995 </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">//-------------------------------------------------------------------------- </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">// </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">//! @file </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">//!  These functions provide allocation and deallocation of two-dimensional </code></pre></td>
 <td><button class="btnc" type="button" id="comment1" onclick="openForm(this.id)">Comment 1</button></td>
 </tr>
 <tr>
-<td><pre><code class="language-c"> </code></pre></td>
+<td><pre><code class="language-c">//!  arrays. </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c"> plmem.c </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> Copyright (C) 1992, 1993, 1994, 1995 </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> Maurice LeBrun			mjl@dino.ph.utexas.edu </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> Institute for Fusion Studies	University of Texas at Austin </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> Copyright (C) 2004 Joao Cardoso </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> Copyright (C) 2004-2018 Alan W. Irwin </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> Copyright (C) 2004 Andrew Ross </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> This file is part of PLplot. </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> PLplot is free software; you can redistribute it and/or modify </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> it under the terms of the GNU Library General Public License as published </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> by the Free Software Foundation; either version 2 of the License, or </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> (at your option) any later version. </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> PLplot is distributed in the hope that it will be useful, </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> but WITHOUT ANY WARRANTY; without even the implied warranty of </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> GNU Library General Public License for more details. </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> You should have received a copy of the GNU Library General Public License </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> along with PLplot; if not, write to the Free Software </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">-------------------------------------------------------------------------- </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">*/ </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">/* </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">! @file </code></pre></td>
-<td><button class="btnc" type="button" id="comment2" onclick="openForm(this.id)">Comment 2</button></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">!  These functions provide allocation and deallocation of two-dimensional </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">!  arrays. </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">! </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">*/ </code></pre></td>
+<td><pre><code class="language-c">//! </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-c"> </code></pre></td>
@@ -179,71 +100,10 @@
 <td><pre><code class="language-c"> </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">/* </code></pre></td>
+<td><pre><code class="language-c">//-------------------------------------------------------------------------- </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">-------------------------------------------------------------------------- </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">! Determine the Iliffe column vector of pointers to PLFLT row </code></pre></td>
-<td><button class="btnc" type="button" id="comment3" onclick="openForm(this.id)">Comment 3</button></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">! vectors corresponding to a 2D matrix of PLFLT's that is statically </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">! allocated. As a result the matrix can be accessed using C/C++ </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">! syntax like zIliffe[i][j]. </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">! Example usage: </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">! </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">!   PLFLT zStatic[XPTS][YPTS]; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">!   PLFLT_NC_VECTOR zIliffe[XPTS]; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">! </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">!   plStatic2dGrid((PLFLT_NC_MATRIX)zIliffe, (PLFLT_VECTOR)(&zStatic[0][0]), XPTS, YPTS); </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">!   plshade((PLFLT_NC_MATRIX)zIliffe,....); </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">! </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">! @param zIliffe Pre-existing location of the storage for the Iliffe column vectors. </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">! @param zStatic Pre-existing location of the storage for the 2D z array that is statically allocated. </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">! @param nx Size of the grid in x = length of the (Iliffe) column vectors. </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">! @param ny Size of the grid in y = length of the row vectors. </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">! </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">-------------------------------------------------------------------------- </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">*/ </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-c"> </code></pre></td>
@@ -282,65 +142,59 @@
 <td><pre><code class="language-c"> </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">/* </code></pre></td>
+<td><pre><code class="language-c">//-------------------------------------------------------------------------- </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">-------------------------------------------------------------------------- </code></pre></td>
+<td><pre><code class="language-c">// </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c"> </code></pre></td>
+<td><pre><code class="language-c">//! Allocate a block of memory for use as a matrix of type </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">! Allocate a block of memory for use as a matrix of type </code></pre></td>
-<td><button class="btnc" type="button" id="comment4" onclick="openForm(this.id)">Comment 4</button></td>
+<td><pre><code class="language-c">//! PLFLT_MATRIX (organized as an Iliffe column vector of pointers to </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">! PLFLT_MATRIX (organized as an Iliffe column vector of pointers to </code></pre></td>
+<td><pre><code class="language-c">//! row vectors).  As a result the matrix can be accessed using C/C++ </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">! row vectors).  As a result the matrix can be accessed using C/C++ </code></pre></td>
+<td><pre><code class="language-c">//! syntax like *f[i][j]. The memory associated with this matrix must </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">! syntax like *f[i][j]. The memory associated with this matrix must </code></pre></td>
+<td><pre><code class="language-c">//! be freed by calling plFree2dGrid once it is no longer required. </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">! be freed by calling plFree2dGrid once it is no longer required. </code></pre></td>
+<td><pre><code class="language-c">//! Example usage: </code></pre></td>
+<td><button class="btnc" type="button" id="comment2" onclick="openForm(this.id)">Comment 2</button></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">! Example usage: </code></pre></td>
+<td><pre><code class="language-c">//! </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">! </code></pre></td>
+<td><pre><code class="language-c">//!   PLFLT **z; </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">!   PLFLT **z; </code></pre></td>
+<td><pre><code class="language-c">//! </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">! </code></pre></td>
+<td><pre><code class="language-c">//!   plAlloc2dGrid(&z, XPTS, YPTS); </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">!   plAlloc2dGrid(&z, XPTS, YPTS); </code></pre></td>
+<td><pre><code class="language-c">//! </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">! </code></pre></td>
+<td><pre><code class="language-c">//! @param f Location of the storage (address of a **). </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">! @param f Location of the storage (address of a **). </code></pre></td>
+<td><pre><code class="language-c">//! @param nx Size of the grid in x. </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">! @param nx Size of the grid in x. </code></pre></td>
+<td><pre><code class="language-c">//! @param ny Size of the grid in y. </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">! @param ny Size of the grid in y. </code></pre></td>
+<td><pre><code class="language-c">//! </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">! </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">-------------------------------------------------------------------------- </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">*/ </code></pre></td>
+<td><pre><code class="language-c">//-------------------------------------------------------------------------- </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-c"> </code></pre></td>
@@ -391,38 +245,11 @@
 <td><pre><code class="language-c"> </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">/* </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">-------------------------------------------------------------------------- </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">plFree2dGrid() </code></pre></td>
-<td><button class="btnc" type="button" id="comment5" onclick="openForm(this.id)">Comment 5</button></td>
+<td><pre><code class="language-c">//  used extensively in resetting standard x-y plots, semi-log plots  </code></pre></td>
+<td><button class="btnc" type="button" id="comment3" onclick="openForm(this.id)">Comment 3 (LAST)</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">! Frees a block of memory allocated with plAlloc2dGrid(). </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">! </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">! @param f The [][] to the storage. </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">! @param nx Size of the grid in x. </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">! @param PL_UNUSED( ny) Not used. </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">-------------------------------------------------------------------------- </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">*/ </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-c"> </code></pre></td>
@@ -461,140 +288,7 @@
 <td><pre><code class="language-c"> </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">/* </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">-------------------------------------------------------------------------- </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">plMinMax2dGrid() </code></pre></td>
-<td><button class="btnc" type="button" id="comment6" onclick="openForm(this.id)">Comment 6 (LAST)</button></td>
-</tr>
-<tr>
 <td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">! Finds the maximum and minimum of a 2d matrix allocated with plAlloc2dGrid(). </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">! NaN and +/- infinity values are ignored. </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">! </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">! param f 2d matrix pointer. </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">! param nx Size of the grid in x. </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">! param ny Size of the grid in y. </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">! param fnmax Maximum value in the matrix. </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">! param fnmin Minimum value in the matrix. </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">! </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">-------------------------------------------------------------------------- </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">*/ </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">void </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">plMinMax2dGrid( PLFLT_MATRIX f, PLINT nx, PLINT ny, PLFLT *fnmax, PLFLT *fnmin ) </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">{ </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">    int   i, j; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">    PLFLT m, M; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">    if ( !isfinite( f[0][0] ) ) </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">    { </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">        M = -HUGE_VAL; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">        m = HUGE_VAL; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">    } </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">    else </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">        M = m = f[0][0]; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">    for ( i = 0; i &lt; nx; i++ ) </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">    { </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">        for ( j = 0; j &lt; ny; j++ ) </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">        { </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">            if ( !isfinite( f[i][j] ) ) </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">                continue; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">            if ( f[i][j] > M ) </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">                M = f[i][j]; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">            if ( f[i][j] &lt; m ) </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">                m = f[i][j]; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">        } </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">    } </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">    *fnmax = M; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">    *fnmin = m; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">} </code></pre></td>
 </tr>
   <!-- end -->
   		</table>

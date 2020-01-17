@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>What a comment!</title>
+    <title>libpng_pngmem</title>
     <link href="./styles/prism.css" rel="stylesheet" />
     <link href="./styles/form.css" rel="stylesheet" />
   </head>
@@ -54,22 +54,20 @@
   		<table>
   			<!--start-->
 <div hidden id="commentCodeID">libpng_pngmem</div><tr>
-<td><pre><code class="language-c">/* pngmem.c - stub functions for memory allocation </code></pre></td>
+<td><pre><code class="language-c">/* pngmem.c - stub functions for memory allocation of libpng -- raster-graphics file-format </code></pre></td>
+<td><button class="btnc" type="button" id="comment1" onclick="openForm(this.id)">Comment 1</button></td>
 </tr>
 <tr>
-<td><pre><code class="language-c"> * </code></pre></td>
+<td><pre><code class="language-c"> */ </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c"> * Copyright (c) 2018 Cosmin Truta </code></pre></td>
+<td><pre><code class="language-c"> </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c"> * Copyright (c) 1998-2002,2004,2006-2014,2016 Glenn Randers-Pehrson </code></pre></td>
+<td><pre><code class="language-c"> </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c"> * Copyright (c) 1996-1997 Andreas Dilger </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> * Copyright (c) 1995-1996 Guy Eric Schalnat, Group 42, Inc. </code></pre></td>
+<td><pre><code class="language-c">/* Copyright (c) </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-c"> * </code></pre></td>
@@ -84,16 +82,23 @@
 <td><pre><code class="language-c"> * and license in png.h </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c"> * </code></pre></td>
+<td><pre><code class="language-c"> */  </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c"> * This file provides a location for all memory allocation.  Users who </code></pre></td>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> /* This file provides a location for all memory allocation.  Users who </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-c"> * need special memory handling are expected to supply replacement </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-c"> * functions for png_malloc() and png_free(), and to use </code></pre></td>
+<td><button class="btnc" type="button" id="comment2" onclick="openForm(this.id)">Comment 2</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c"> * png_create_read_struct_2() and png_create_write_struct_2() to </code></pre></td>
@@ -111,7 +116,7 @@
 <td><pre><code class="language-c">#include "pngpriv.h" </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c"> </code></pre></td>
+<td><pre><code class="language-c">#include "pngstruct.h" </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">#if defined(PNG_READ_SUPPORTED) || defined(PNG_WRITE_SUPPORTED) </code></pre></td>
@@ -120,10 +125,23 @@
 <td><pre><code class="language-c">/* Free a png_struct */ </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">void /* PRIVATE */ </code></pre></td>
+<td><pre><code class="language-c"> </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">png_destroy_png_struct(png_structrp png_ptr) </code></pre></td>
+<td><pre><code class="language-c">/* png_destroy_png_struct calls png_free  </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">which  might call png_error and may certainly call </code></pre></td>
+<td><button class="btnc" type="button" id="comment3" onclick="openForm(this.id)">Comment 3</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">       * png_get_mem_ptr, so fake a temporary png_struct to support this. </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">       */ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">void  png_destroy_png_struct(png_structrp png_ptr) </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">{ </code></pre></td>
@@ -135,13 +153,7 @@
 <td><pre><code class="language-c">   { </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">      /* png_free might call png_error and may certainly call </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">       * png_get_mem_ptr, so fake a temporary png_struct to support this. </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">       */ </code></pre></td>
+<td><pre><code class="language-c">       </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">      png_struct dummy_struct = *png_ptr; </code></pre></td>
@@ -160,7 +172,7 @@
 </tr>
 <tr>
 <td><pre><code class="language-c">         /* We may have a jmp_buf left to deallocate. */ </code></pre></td>
-<td><button class="btnc" type="button" id="comment1" onclick="openForm(this.id)">Comment 1</button></td>
+<td><button class="btnc" type="button" id="comment4" onclick="openForm(this.id)">Comment 4</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">         png_free_jmpbuf(&dummy_struct); </code></pre></td>
@@ -185,6 +197,7 @@
 </tr>
 <tr>
 <td><pre><code class="language-c"> * it not to.  See zconf.h and png.h for more information.  zlib does </code></pre></td>
+<td><button class="btnc" type="button" id="comment5" onclick="openForm(this.id)">Comment 5</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c"> * need to allocate exactly 64K, so whatever you call here must </code></pre></td>
@@ -194,6 +207,13 @@
 </tr>
 <tr>
 <td><pre><code class="language-c"> */ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">/* uses png_calloc defined in pngriv.h*/ </code></pre></td>
+<td><button class="btnc" type="button" id="comment6" onclick="openForm(this.id)">Comment 6</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">PNG_FUNCTION(png_voidp,PNGAPI </code></pre></td>
@@ -235,47 +255,7 @@
 <td><pre><code class="language-c"> </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">/* png_malloc_base, an internal function added at libpng 1.6.0, does the work of </code></pre></td>
-<td><button class="btnc" type="button" id="comment2" onclick="openForm(this.id)">Comment 2</button></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> * allocating memory, taking into account limits and PNG_USER_MEM_SUPPORTED. </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> * Checking and error handling must happen outside this routine; it returns NULL </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> * if the allocation cannot be done (for any reason.) </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> */ </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">PNG_FUNCTION(png_voidp /* PRIVATE */, </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">png_malloc_base,(png_const_structrp png_ptr, png_alloc_size_t size), </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">    PNG_ALLOCATED) </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">{ </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">   /* Moved to png_malloc_base from png_malloc_default in 1.6.0; the DOS </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">    * allocators have also been removed in 1.6.0, so any 16-bit system now has </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">    * to implement a user memory handler.  This checks to be sure it isn't </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">    * called with big numbers. </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">    */ </code></pre></td>
+<td><pre><code class="language-c"> </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">#ifndef PNG_USER_MEM_SUPPORTED </code></pre></td>
@@ -290,68 +270,7 @@
 <td><pre><code class="language-c"> </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">   /* Some compilers complain that this is always true.  However, it </code></pre></td>
-<td><button class="btnc" type="button" id="comment3" onclick="openForm(this.id)">Comment 3</button></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">    * can be false when integer overflow happens. </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">    */ </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">   if (size > 0 && size &lt;= PNG_SIZE_MAX </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">#     ifdef PNG_MAX_MALLOC_64K </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">         && size &lt;= 65536U </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">#     endif </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">      ) </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">   { </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">#ifdef PNG_USER_MEM_SUPPORTED </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">      if (png_ptr != NULL && png_ptr->malloc_fn != NULL) </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">         return png_ptr->malloc_fn(png_constcast(png_structrp,png_ptr), size); </code></pre></td>
-</tr>
-<tr>
 <td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">      else </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">#endif </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">         return malloc((size_t)size); /* checked for truncation above */ </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">   } </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">   else </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">      return NULL; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">} </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-c"> </code></pre></td>
@@ -363,13 +282,14 @@
 <td><pre><code class="language-c">   defined(PNG_STORE_UNKNOWN_CHUNKS_SUPPORTED) </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">/* This is really here only to work round a spurious warning in GCC 4.6 and 4.7 </code></pre></td>
+<td><pre><code class="language-c">/* Introduced in libpng 1.6.0, commit 0e13545. This is really here only to work round a spurious warning in GCC 4.6 and 4.7 </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-c"> * that arises because of the checks in png_realloc_array that are repeated in </code></pre></td>
+<td><button class="btnc" type="button" id="comment7" onclick="openForm(this.id)">Comment 7</button></td>
 </tr>
 <tr>
-<td><pre><code class="language-c"> * png_malloc_array. </code></pre></td>
+<td><pre><code class="language-c"> * png_malloc_array, issue #289. </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-c"> */ </code></pre></td>
@@ -388,6 +308,7 @@
 </tr>
 <tr>
 <td><pre><code class="language-c">   png_alloc_size_t req = (png_alloc_size_t)nelements; /* known to be > 0 */ </code></pre></td>
+<td><button class="btnc" type="button" id="comment8" onclick="openForm(this.id)">Comment 8</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c"> </code></pre></td>
@@ -402,7 +323,7 @@
 <td><pre><code class="language-c"> </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">   /* The failure case when the request is too large */ </code></pre></td>
+<td><pre><code class="language-c">   </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">   return NULL; </code></pre></td>
@@ -414,37 +335,26 @@
 <td><pre><code class="language-c"> </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">PNG_FUNCTION(png_voidp /* PRIVATE */, </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">png_malloc_array,(png_const_structrp png_ptr, int nelements, </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">    size_t element_size),PNG_ALLOCATED) </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">{ </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">   if (nelements &lt;= 0 || element_size == 0) </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">      png_error(png_ptr, "internal error: array alloc"); </code></pre></td>
+<td><pre><code class="language-c"> </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-c"> </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">   return png_malloc_array_checked(png_ptr, nelements, element_size); </code></pre></td>
+<td><pre><code class="language-c">   /* Check for overflow on the elements count (so the caller does not have to </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">} </code></pre></td>
+<td><pre><code class="language-c">    * check.) png_malloc_array has been worked with the size calculations to avoid </code></pre></td>
+<td><button class="btnc" type="button" id="comment9" onclick="openForm(this.id)">Comment 9</button></td>
 </tr>
 <tr>
-<td><pre><code class="language-c"> </code></pre></td>
+<td><pre><code class="language-c">          * overflow. </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">PNG_FUNCTION(png_voidp /* PRIVATE */, </code></pre></td>
+<td><pre><code class="language-c">    */ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">PNG_FUNCTION(png_voidp, </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">png_realloc_array,(png_const_structrp png_ptr, png_const_voidp old_array, </code></pre></td>
@@ -457,6 +367,7 @@
 </tr>
 <tr>
 <td><pre><code class="language-c">   /* These are internal errors: */ </code></pre></td>
+<td><button class="btnc" type="button" id="comment10" onclick="openForm(this.id)">Comment 10</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">   if (add_elements &lt;= 0 || element_size == 0 || old_elements &lt; 0 || </code></pre></td>
@@ -469,16 +380,6 @@
 </tr>
 <tr>
 <td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">   /* Check for overflow on the elements count (so the caller does not have to </code></pre></td>
-<td><button class="btnc" type="button" id="comment4" onclick="openForm(this.id)">Comment 4</button></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">    * check.) </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">    */ </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">   if (add_elements &lt;= INT_MAX - old_elements) </code></pre></td>
@@ -502,13 +403,7 @@
 <td><pre><code class="language-c">      { </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">         /* Because png_malloc_array worked the size calculations below cannot </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">          * overflow. </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">          */ </code></pre></td>
+<td><pre><code class="language-c">          </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">         if (old_elements > 0) </code></pre></td>
@@ -548,66 +443,47 @@
 </tr>
 <tr>
 <td><pre><code class="language-c">#endif /* TEXT || sPLT || STORE_UNKNOWN_CHUNKS */ </code></pre></td>
+<td><button class="btnc" type="button" id="comment11" onclick="openForm(this.id)">Comment 11</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c"> </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">/* Various functions that have different error handling are derived from this. </code></pre></td>
+<td><pre><code class="language-c"> </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c"> * png_malloc always exists, but if PNG_USER_MEM_SUPPORTED is defined a separate </code></pre></td>
+<td><pre><code class="language-c"> </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c"> * function png_malloc_default is also provided. </code></pre></td>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">/* Free a pointer allocated by png_malloc().  If ptr is NULL, return </code></pre></td>
+<td><button class="btnc" type="button" id="comment12" onclick="openForm(this.id)">Comment 12 (LAST)</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> * without taking any action. </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-c"> */ </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">PNG_FUNCTION(png_voidp,PNGAPI </code></pre></td>
+<td><pre><code class="language-c">void PNGAPI </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">png_malloc,(png_const_structrp png_ptr, png_alloc_size_t size),PNG_ALLOCATED) </code></pre></td>
+<td><pre><code class="language-c">png_free(png_const_structrp png_ptr, png_voidp ptr) </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">{ </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">   png_voidp ret; </code></pre></td>
+<td><pre><code class="language-c">   if (png_ptr == NULL || ptr == NULL) </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">   if (png_ptr == NULL) </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">      return NULL; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">   ret = png_malloc_base(png_ptr, size); </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">   if (ret == NULL) </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">       png_error(png_ptr, "Out of memory"); /* 'm' means png_malloc */ </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">   return ret; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">} </code></pre></td>
+<td><pre><code class="language-c">      return; </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-c"> </code></pre></td>
@@ -616,65 +492,40 @@
 <td><pre><code class="language-c">#ifdef PNG_USER_MEM_SUPPORTED </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">PNG_FUNCTION(png_voidp,PNGAPI </code></pre></td>
+<td><pre><code class="language-c">   if (png_ptr->free_fn != NULL) </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">png_malloc_default,(png_const_structrp png_ptr, png_alloc_size_t size), </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">    PNG_ALLOCATED PNG_DEPRECATED) </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">{ </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">   png_voidp ret; </code></pre></td>
+<td><pre><code class="language-c">      png_ptr->free_fn(png_constcast(png_structrp,png_ptr), ptr); </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-c"> </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">   if (png_ptr == NULL) </code></pre></td>
+<td><pre><code class="language-c">   else </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">      return NULL; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">   /* Passing 'NULL' here bypasses the application provided memory handler.  </code></pre></td>
-<td><button class="btnc" type="button" id="comment5" onclick="openForm(this.id)">Comment 5 (LAST)</button></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">      Highlighted by @mark in Issue 143 */ </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">   ret = png_malloc_base(NULL/*use malloc*/, size); </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">   if (ret == NULL) </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">      png_error(png_ptr, "Out of Memory"); /* 'M' means png_malloc_default */ </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">   return ret; </code></pre></td>
+<td><pre><code class="language-c">      png_free_default(png_ptr, ptr); </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">} </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">#endif /* USER_MEM */ </code></pre></td>
+<td><pre><code class="language-c"> </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#endif /* USER_MEM */ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#endif /* READ || WRITE */ </code></pre></td>
 </tr>
   <!-- end -->
   		</table>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>What a comment!</title>
+    <title>Curl_Util</title>
     <link href="./styles/prism.css" rel="stylesheet" />
     <link href="./styles/form.css" rel="stylesheet" />
   </head>
@@ -57,25 +57,11 @@
 <td><pre><code class="language-c">/*************************************************************************** </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c"> *                                  _   _ ____  _ </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> *  Project                     ___| | | |  _ \| | </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> *                             / __| | | | |_) | | </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> *                            | (__| |_| |  _ &lt;| |___ </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> *                             \___|\___/|_| \_\_____| </code></pre></td>
-</tr>
-<tr>
 <td><pre><code class="language-c"> * </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-c"> * Copyright (C) 1998 - 2019, Daniel Stenberg, &lt;daniel@haxx.se>, et al. </code></pre></td>
+<td><button class="btnc" type="button" id="comment1" onclick="openForm(this.id)">Comment 1</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c"> * </code></pre></td>
@@ -90,28 +76,7 @@
 <td><pre><code class="language-c"> * are also available at https://curl.haxx.se/docs/copyright.html. </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c"> * </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> * You may opt to use, copy, modify, merge, publish, distribute and/or sell </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> * copies of the Software, and permit persons to whom the Software is </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> * furnished to do so, under the terms of the COPYING file. </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> * </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> * This software is distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> * KIND, either express or implied. </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> * </code></pre></td>
+<td><pre><code class="language-c"> </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-c"> ***************************************************************************/ </code></pre></td>
@@ -142,10 +107,6 @@
 </tr>
 <tr>
 <td><pre><code class="language-c">#ifdef _XOPEN_SOURCE_EXTENDED </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">/* This define is "almost" required to build on HPUX 11 */ </code></pre></td>
-<td><button class="btnc" type="button" id="comment1" onclick="openForm(this.id)">Comment 1</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">#include &lt;arpa/inet.h> </code></pre></td>
@@ -221,7 +182,6 @@
 </tr>
 <tr>
 <td><pre><code class="language-c">#define EINTR    4 /* errno.h value */ </code></pre></td>
-<td><button class="btnc" type="button" id="comment2" onclick="openForm(this.id)">Comment 2</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">#undef  EINVAL </code></pre></td>
@@ -255,7 +215,6 @@
 </tr>
 <tr>
 <td><pre><code class="language-c">#endif /* w32api &lt; 3.6 */ </code></pre></td>
-<td><button class="btnc" type="button" id="comment3" onclick="openForm(this.id)">Comment 3</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">#endif /* ENABLE_IPV6 && __MINGW32__*/ </code></pre></td>
@@ -274,6 +233,7 @@
 </tr>
 <tr>
 <td><pre><code class="language-c"> * binary lump to a hex formatted string usable for output in logs or </code></pre></td>
+<td><button class="btnc" type="button" id="comment2" onclick="openForm(this.id)">Comment 2</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c"> * whatever. </code></pre></td>
@@ -337,7 +297,6 @@
 </tr>
 <tr>
 <td><pre><code class="language-c">  *optr = 0; /* in case no sprintf was used */ </code></pre></td>
-<td><button class="btnc" type="button" id="comment4" onclick="openForm(this.id)">Comment 4</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c"> </code></pre></td>
@@ -422,6 +381,7 @@
 </tr>
 <tr>
 <td><pre><code class="language-c">  now = localtime(&sec); /* not thread safe but we don't care */ </code></pre></td>
+<td><button class="btnc" type="button" id="comment3" onclick="openForm(this.id)">Comment 3</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c"> </code></pre></td>
@@ -496,8 +456,8 @@
 <td><pre><code class="language-c">#ifdef WIN32 </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">/* use instead of perror() on generic windows */ </code></pre></td>
-<td><button class="btnc" type="button" id="comment5" onclick="openForm(this.id)">Comment 5</button></td>
+<td><pre><code class="language-c">/* uses global character buffer generated from message_generate function of sockfilt file*/ </code></pre></td>
+<td><button class="btnc" type="button" id="comment4" onclick="openForm(this.id)">Comment 4</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">void win32_perror(const char *msg) </code></pre></td>
@@ -672,13 +632,13 @@
 </tr>
 <tr>
 <td><pre><code class="language-c"> * Portable function used for waiting a specific amount of ms. </code></pre></td>
-<td><button class="btnc" type="button" id="comment6" onclick="openForm(this.id)">Comment 6</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c"> * Waiting indefinitely with this function is not allowed, a </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-c"> * zero or negative timeout value will return immediately. </code></pre></td>
+<td><button class="btnc" type="button" id="comment5" onclick="openForm(this.id)">Comment 5 (LAST)</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c"> * </code></pre></td>
@@ -838,55 +798,6 @@
 </tr>
 <tr>
 <td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">int write_pidfile(const char *filename) </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">{ </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">  FILE *pidfile; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">  long pid; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">  pid = (long)getpid(); </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">  pidfile = fopen(filename, "wb"); </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">  if(!pidfile) { </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">    logmsg("Couldn't write pid file: %s %s", filename, strerror(errno)); </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">    return 0; /* fail */ </code></pre></td>
-<td><button class="btnc" type="button" id="comment7" onclick="openForm(this.id)">Comment 7 (LAST)</button></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">  } </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">  fprintf(pidfile, "%ld\n", pid); </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">  fclose(pidfile); </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">  logmsg("Wrote pid %ld to %s", pid, filename); </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">  return 1; /* success */ </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">} </code></pre></td>
 </tr>
   <!-- end -->
   		</table>

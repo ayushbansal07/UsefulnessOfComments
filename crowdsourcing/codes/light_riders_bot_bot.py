@@ -1,6 +1,8 @@
 # Use the game by - pip install git+https://github.com/wonderworks-software/PyFlow.git@master
+
+# document links https://EvanMark/light_riders_bot
 class Bot:
-    def __init__(self):
+    def __init__(self): #initialise
         self.game = None
         self.last_move = None
 
@@ -8,7 +10,7 @@ class Bot:
         self.game = game
 
     """
-    returns the next possible position of the my bot based on the given direction
+    returns the next possible position  / direction 
     """
 
     def next_pos(self, direction, pos=None):
@@ -45,24 +47,17 @@ class Bot:
         visited = []
         return self.flood_fill(position, visited)
 
-    """
-    flood fill algorithm implementation.
-    Returns the count of legal boxes on our field for the given position
-    """
-
+  
+    # works on a two dimensional data matrix (each of size 8) generated from light rider bot module 
     def flood_fill(self, position, visited):
         row, col = position
-        # if we are out of bounds
-        # or have already visited the current position
-        # or can't visit this box
+       
         if row < 0 or col < 0 or row > self.game.field_width - 1 or \
                         col > self.game.field_height - 1 or position in visited \
                 or not self.game.field.is_legal_tuple(position, self.game.my_botid):
             return 0  # count is 0
 
-        visited.append(position)  # mark current position as visited
-        # get position count recursively from the current box till the end
-        # or an illegal box
+        visited.append(position)  
         return 1 + self.flood_fill((row - 1, col), visited) \
                + self.flood_fill((row + 1, col), visited) \
                + self.flood_fill((row, col - 1), visited) \
@@ -76,26 +71,22 @@ class Bot:
 
         # with open('log.txt', 'a') as file:
         #     file.write("Round: " + str(self.game.round) + " Begin!\n" + "length of legal_dirs: " + str(len(legal)) + "\n")
-
+     
         if len(legal) == 0:
             desired_direction = "pass"
         else:
-            # remove useless tuples from legal var
-            legal_dirs = []  # legal directions (legal moves w/o the tuples)
+ 
+            legal_dirs = []  
             for _, direction in legal:
                 legal_dirs.append(direction)
-
-            # if on first round
-            # just head to the nearest wall
             if self.game.round == 0:
-                # calculate distances from each wall
                 dist_to_walls = {}
                 dist_to_walls["up"] = my_row
                 dist_to_walls["down"] = self.game.field_height - my_col
                 dist_to_walls["left"] = my_col
                 dist_to_walls["right"] = self.game.field_width - my_row
 
-                # find min distance
+                # find min distance based on dist_to_walls 
                 desired_direction = min(dist_to_walls, key=dist_to_walls.get)
 
             # if not on first round
@@ -104,32 +95,31 @@ class Bot:
                 # TODO Maybe can add it before issue_order_pass
 
                 # Remove unallowed moves (it seems that is_legal wasn't good enough)
+
                 if self.last_move == "up":
                     try:
-                        # legal_dirs.remove("up")
+                #NOTE: this is *horrendous*, but seems to be the only way to check for legal moves
                         legal_dirs.remove("down")
-                    except ValueError:
+                    except ValueError: 
+                    
                         pass
                 elif self.last_move == "down":
                     try:
-                        # legal_dirs.remove("down")
                         legal_dirs.remove("up")
                     except ValueError:
                         pass
                 elif self.last_move == "left":
                     try:
-                        # legal_dirs.remove("left")
                         legal_dirs.remove("right")
                     except ValueError:
                         pass
                 elif self.last_move == "right":
                     try:
-                        # legal_dirs.remove("right")
                         legal_dirs.remove("left")
                     except ValueError:
                         pass
 
-                # Check if any immediate neighbor square is illegal move and remove it
+
                 my_id = self.game.my_botid
                 if not self.game.field.is_legal_tuple((my_row - 1, my_col), my_id):
                     try:
@@ -155,8 +145,7 @@ class Bot:
                 if len(legal_dirs) == 1:
                     desired_direction = legal_dirs[0]
 
-                # Flood fill count in 2 directions to find max space and make the move
-                # that leads there
+
                 elif len(legal_dirs) == 2:
                     first_move = legal_dirs[0]
                     second_move = legal_dirs[1]
@@ -171,11 +160,10 @@ class Bot:
                         next_moves_dists[first_move] = self.dist_to_obstacle(first_move)
                         next_moves_dists[second_move] = self.dist_to_obstacle(second_move)
                         desired_direction = max(next_moves_dists, key=next_moves_dists.get)
-                    else:
+                    else:  # this probably never comes up - not sure
                         desired_direction = max(next_moves_counts, key=next_moves_counts.get)
 
-                # Flood fill count in 3 directions to find max space and make the move
-                # that leads there
+
                 elif len(legal_dirs) == 3:
                     first_move = legal_dirs[0]
                     second_move = legal_dirs[1]
@@ -193,11 +181,9 @@ class Bot:
                         desired_direction = max(next_moves_counts, key=next_moves_counts.get)
                     else:
                         desired_direction = self.voronoi(legal_dirs)
-                else:  # this probably never comes up - not sure
+                else: 
                     desired_direction = "pass"
 
-        # with open('log.txt', 'a') as file:
-        #     file.write("End: length of legal_dirs: " + str(len(legal_dirs)) + "\n")
 
         if desired_direction == "pass":
             self.last_move = "pass"

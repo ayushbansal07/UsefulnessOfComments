@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>What a comment!</title>
+    <title>mariadb_terminal</title>
     <link href="./styles/prism.css" rel="stylesheet" />
     <link href="./styles/form.css" rel="stylesheet" />
   </head>
@@ -55,54 +55,52 @@
   			<!--start-->
 <div hidden id="commentCodeID">server_terminal</div><tr>
 <td><pre><code class="language-c">/* terminal.c -- controlling the terminal with termcap. */ </code></pre></td>
+<td><button class="btnc" type="button" id="comment1" onclick="openForm(this.id)">Comment 1</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c"> </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">/* Copyright (C) 1996-2006 Free Software Foundation, Inc. </code></pre></td>
+<td><pre><code class="language-c">/* Copyright (C) 1996-2006 Free Software Foundation */ </code></pre></td>
+<td><button class="btnc" type="button" id="comment2" onclick="openForm(this.id)">Comment 2</button></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">   This file is part of the GNU Readline Library, a library for </code></pre></td>
+<td><pre><code class="language-c"> </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">   reading lines of text with interactive input and history editing. </code></pre></td>
+<td><pre><code class="language-c">/* part of Readline library provides a set of functions for use by applications </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">   The GNU Readline Library is free software; you can redistribute it </code></pre></td>
+<td><pre><code class="language-c">that allow users to edit command lines as they are typed in. </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">   and/or modify it under the terms of the GNU General Public License </code></pre></td>
+<td><pre><code class="language-c">These functions are basic functions are based on conditional processing of regular expressions.  </code></pre></td>
+<td><button class="btnc" type="button" id="comment3" onclick="openForm(this.id)">Comment 3</button></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">   as published by the Free Software Foundation; either version 2, or </code></pre></td>
+<td><pre><code class="language-c">Uses functions and data types defined in readine and keyboard header files.  </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">   (at your option) any later version. </code></pre></td>
+<td><pre><code class="language-c">Produces types which are used in  MariaDBbackup source files */ </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">   The GNU Readline Library is distributed in the hope that it will be </code></pre></td>
+<td><pre><code class="language-c"> </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">   useful, but WITHOUT ANY WARRANTY; without even the implied warranty </code></pre></td>
+<td><pre><code class="language-c"> </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">   of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the </code></pre></td>
+<td><pre><code class="language-c">/* To build the library, try typing `./configure', then `make'.. </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">   GNU General Public License for more details. </code></pre></td>
+<td><pre><code class="language-c">If `configure' is given the `--enable-shared' option, it will attempt </code></pre></td>
+<td><button class="btnc" type="button" id="comment4" onclick="openForm(this.id)">Comment 4</button></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">   The GNU General Public License is often shipped with GNU software, and </code></pre></td>
+<td><pre><code class="language-c">to build the shared libraries by default on supported platforms.  Requires Linux distribution with gcc*/ </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">   is generally kept in a file called COPYING or LICENSE.  If you do not </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">   have a copy of the license, write to the Free Software Foundation, </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">   51 Franklin Street, Fifth Floor, Boston, MA  02110-1335  USA. */ </code></pre></td>
+<td><pre><code class="language-c"> </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">#define READLINE_LIBRARY </code></pre></td>
@@ -208,13 +206,19 @@
 </tr>
 <tr>
 <td><pre><code class="language-c">#endif /* GWINSZ_IN_SYS_IOCTL && !TIOCGWINSZ */ </code></pre></td>
-<td><button class="btnc" type="button" id="comment1" onclick="openForm(this.id)">Comment 1</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c"> </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">#include "rltty.h" </code></pre></td>
+<td><pre><code class="language-c">/* tty driver-related definitions / types like  </code></pre></td>
+<td><button class="btnc" type="button" id="comment5" onclick="openForm(this.id)">Comment 5</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">_rl_tty_chars (used in this file) */ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">#include "rltty.h"  </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">#include "tcap.h" </code></pre></td>
@@ -290,10 +294,10 @@
 </tr>
 <tr>
 <td><pre><code class="language-c">/*  If the calling application sets this to a non-zero value, readline will </code></pre></td>
-<td><button class="btnc" type="button" id="comment2" onclick="openForm(this.id)">Comment 2</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">    use the $LINES and $COLUMNS environment variables to set its idea of the </code></pre></td>
+<td><button class="btnc" type="button" id="comment6" onclick="openForm(this.id)">Comment 6</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">    window size before interrogating the kernel. */ </code></pre></td>
@@ -323,6 +327,34 @@
 <td><pre><code class="language-c"> </code></pre></td>
 </tr>
 <tr>
+<td><pre><code class="language-c">/* Delete key */ </code></pre></td>
+<td><button class="btnc" type="button" id="comment7" onclick="openForm(this.id)">Comment 7</button></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">static const char *_rl_term_kD; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">/* Insert key */ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">static const char *_rl_term_kI; </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">/* Cursor control */ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">static const char *_rl_term_vs;	/* very visible */ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">static const char *_rl_term_ve;	/* normal */ </code></pre></td>
+</tr>
+<tr>
 <td><pre><code class="language-c">static char *term_buffer = (char *)NULL; </code></pre></td>
 </tr>
 <tr>
@@ -332,7 +364,8 @@
 <td><pre><code class="language-c"> </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">static int tcap_initialized; </code></pre></td>
+<td><pre><code class="language-c">static int tcap_initialized; // should have a value greater than 1, is taken from user </code></pre></td>
+<td><button class="btnc" type="button" id="comment8" onclick="openForm(this.id)">Comment 8</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c"> </code></pre></td>
@@ -359,33 +392,6 @@
 <td><pre><code class="language-c"> </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">/* Some strings to control terminal actions.  These are output by tputs (). */ </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">const char *_rl_term_clreol; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">const char *_rl_term_clrpag; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">const char *_rl_term_cr; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">const char *_rl_term_backspace; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">char _rl_term_backspace_default[2] = { '\b', 0 }; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">const char *_rl_term_goto; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">const char *_rl_term_pc; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
 <td><pre><code class="language-c">/* Non-zero if we determine that the terminal can do character insertion. */ </code></pre></td>
 </tr>
 <tr>
@@ -395,7 +401,8 @@
 <td><pre><code class="language-c"> </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">/* How to insert characters. */ </code></pre></td>
+<td><pre><code class="language-c">/* used in character insertion in cursor functions below */ </code></pre></td>
+<td><button class="btnc" type="button" id="comment9" onclick="openForm(this.id)">Comment 9</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">const char *_rl_term_im; </code></pre></td>
@@ -407,10 +414,7 @@
 <td><pre><code class="language-c">const char *_rl_term_ic; </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">const char *_rl_term_ip; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">const char *_rl_term_IC; </code></pre></td>
+<td><pre><code class="language-c"> </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-c"> </code></pre></td>
@@ -446,7 +450,7 @@
 <td><pre><code class="language-c"> </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">/* A visible bell; char if the terminal can be made to flash the screen. */ </code></pre></td>
+<td><pre><code class="language-c"> </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">static const char *_rl_visible_bell; </code></pre></td>
@@ -455,7 +459,7 @@
 <td><pre><code class="language-c"> </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">/* Non-zero means the terminal can auto-wrap lines. */ </code></pre></td>
+<td><pre><code class="language-c"> </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">int _rl_term_autowrap = -1; </code></pre></td>
@@ -464,101 +468,10 @@
 <td><pre><code class="language-c"> </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">/* Non-zero means that this terminal has a meta key. */ </code></pre></td>
+<td><pre><code class="language-c"> </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">static int term_has_meta; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">/* The sequences to write to turn on and off the meta key, if this </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">   terminal has one. */ </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">static const char *_rl_term_mm; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">static const char *_rl_term_mo; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">/* The key sequences output by the arrow keys, if this terminal has any. */ </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">static const char *_rl_term_ku; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">static const char *_rl_term_kd; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">static const char *_rl_term_kr; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">static const char *_rl_term_kl; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">/* How to initialize and reset the arrow keys, if this terminal has any. */ </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">static const char *_rl_term_ks; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">static const char *_rl_term_ke; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">/* The key sequences sent by the Home and End keys, if any. */ </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">static const char *_rl_term_kh; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">static const char *_rl_term_kH; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">static const char *_rl_term_at7;	/* @7 */ </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">/* Delete key */ </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">static const char *_rl_term_kD; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">/* Insert key */ </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">static const char *_rl_term_kI; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">/* Cursor control */ </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">static const char *_rl_term_vs;	/* very visible */ </code></pre></td>
-<td><button class="btnc" type="button" id="comment3" onclick="openForm(this.id)">Comment 3</button></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">static const char *_rl_term_ve;	/* normal */ </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-c"> </code></pre></td>
@@ -570,16 +483,13 @@
 <td><pre><code class="language-c"> </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">/* Variables that hold the screen dimensions, used by the display code. */ </code></pre></td>
-</tr>
-<tr>
 <td><pre><code class="language-c">int _rl_screenwidth, _rl_screenheight, _rl_screenchars; </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-c"> </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">/* Non-zero means the user wants to enable the keypad. */ </code></pre></td>
+<td><pre><code class="language-c"> </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">int _rl_enable_keypad; </code></pre></td>
@@ -589,6 +499,7 @@
 </tr>
 <tr>
 <td><pre><code class="language-c">/* Non-zero means the user wants to enable a meta key. */ </code></pre></td>
+<td><button class="btnc" type="button" id="comment10" onclick="openForm(this.id)">Comment 10</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">int _rl_enable_meta = 1; </code></pre></td>
@@ -597,371 +508,77 @@
 <td><pre><code class="language-c"> </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">#if defined (__EMX__) </code></pre></td>
+<td><pre><code class="language-c">/* **************************************************************** */ </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">static void </code></pre></td>
+<td><pre><code class="language-c">/*								    */ </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">_emx_get_screensize (swp, shp) </code></pre></td>
+<td><pre><code class="language-c">/*	 		Controlling the Cursor			    */ </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">     int *swp, *shp; </code></pre></td>
+<td><pre><code class="language-c">/*								    */ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">/* **************************************************************** */ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c"> </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">/* Set the cursor appropriately depending on IM, which is one of the </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">   insert modes (insert or overwrite).  Insert mode gets the normal </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">   cursor.  Overwrite mode gets a very visible cursor.  Only does </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">   anything if we have both capabilities. */ </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">void </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">_rl_set_cursor (im, force) </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">     int im, force; </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">{ </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">  int sz[2]; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">  _scrsize (sz); </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">  if (swp) </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">    *swp = sz[0]; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">  if (shp) </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">    *shp = sz[1]; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">} </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">#endif </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">#if defined (__MINGW32__) </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">static void </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">_win_get_screensize (swp, shp) </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">     int *swp, *shp; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">{ </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">  HANDLE hConOut; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">  CONSOLE_SCREEN_BUFFER_INFO scr; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">  hConOut = GetStdHandle (STD_OUTPUT_HANDLE); </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">  if (hConOut != INVALID_HANDLE_VALUE) </code></pre></td>
+<td><pre><code class="language-c">  if (_rl_term_ve && _rl_term_vs) </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">    { </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">      if (GetConsoleScreenBufferInfo (hConOut, &scr)) </code></pre></td>
+<td><pre><code class="language-c">      if (force || im != rl_insert_mode) // rl_insert_mode defined in config_readline.h </code></pre></td>
+<td><button class="btnc" type="button" id="comment11" onclick="openForm(this.id)">Comment 11 (LAST)</button></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">	{ </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">	  *swp = scr.dwSize.X; </code></pre></td>
+<td><pre><code class="language-c">	  if (im == RL_IM_OVERWRITE) </code></pre></td>
 </tr>
 <tr>
-<td><pre><code class="language-c">	  *shp = scr.srWindow.Bottom - scr.srWindow.Top + 1; </code></pre></td>
+<td><pre><code class="language-c">	    tputs (_rl_term_vs, 1, _rl_output_character_function); </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">	  else </code></pre></td>
+</tr>
+<tr>
+<td><pre><code class="language-c">	    tputs (_rl_term_ve, 1, _rl_output_character_function); </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">	} </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">    } </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">} </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">#endif </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">/* Get readline's idea of the screen size.  TTY is a file descriptor open </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">   to the terminal.  If IGNORE_ENV is true, we do not pay attention to the </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">   values of $LINES and $COLUMNS.  The tests for TERM_STRING_BUFFER being </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">   non-null serve to check whether or not we have initialized termcap. */ </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">void </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">_rl_get_screen_size (tty, ignore_env) </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">     int tty, ignore_env; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">{ </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">  char *ss; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">#if defined (TIOCGWINSZ) </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">  struct winsize window_size; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">#endif /* TIOCGWINSZ */ </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">  int wr, wc; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">  wr = wc = -1; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">#if defined (TIOCGWINSZ) </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">  if (ioctl (tty, TIOCGWINSZ, &window_size) == 0) </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">    { </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">      wc = (int) window_size.ws_col; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">      wr = (int) window_size.ws_row; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">    } </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">#endif /* TIOCGWINSZ */ </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">#if defined (__EMX__) </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">  _emx_get_screensize (&wc, &wr); </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">#elif defined (__MINGW32__) </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">  _win_get_screensize (&wc, &wr); </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">#endif </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">  if (ignore_env || rl_prefer_env_winsize == 0) </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">    { </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">      _rl_screenwidth = wc; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">      _rl_screenheight = wr; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">    } </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">  else </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">    _rl_screenwidth = _rl_screenheight = -1; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">  /* Environment variable COLUMNS overrides setting of "co" if IGNORE_ENV </code></pre></td>
-<td><button class="btnc" type="button" id="comment4" onclick="openForm(this.id)">Comment 4 (LAST)</button></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">     is unset.  If we prefer the environment, check it first before </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">     assigning the value returned by the kernel. */ </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">  if (_rl_screenwidth &lt;= 0) </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">    { </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">      if (ignore_env == 0 && (ss = sh_get_env_value ("COLUMNS"))) </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">	_rl_screenwidth = atoi (ss); </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">      if (_rl_screenwidth &lt;= 0) </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">        _rl_screenwidth = wc; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">#if !defined (__DJGPP__) </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">      if (_rl_screenwidth &lt;= 0 && term_string_buffer) </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">	_rl_screenwidth = tgetnum ((char *)"co"); </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">#endif </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">    } </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">  /* Environment variable LINES overrides setting of "li" if IGNORE_ENV </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">     is unset. */ </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">  if (_rl_screenheight &lt;= 0) </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">    { </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">      if (ignore_env == 0 && (ss = sh_get_env_value ("LINES"))) </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">	_rl_screenheight = atoi (ss); </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">      if (_rl_screenheight &lt;= 0) </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">        _rl_screenheight = wr; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">#if !defined (__DJGPP__) </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">      if (_rl_screenheight &lt;= 0 && term_string_buffer) </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">	_rl_screenheight = tgetnum ((char *)"li"); </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">#endif </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">    } </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">  /* If all else fails, default to 80x24 terminal. */ </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">  if (_rl_screenwidth &lt;= 1) </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">    _rl_screenwidth = 80; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">  if (_rl_screenheight &lt;= 0) </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">    _rl_screenheight = 24; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">  /* If we're being compiled as part of bash, set the environment </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">     variables $LINES and $COLUMNS to new values.  Otherwise, just </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">     do a pair of putenv () or setenv () calls. */ </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">  sh_set_lines_and_columns (_rl_screenheight, _rl_screenwidth); </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">  if (_rl_term_autowrap == 0) </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">    _rl_screenwidth--; </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c"> </code></pre></td>
-</tr>
-<tr>
-<td><pre><code class="language-c">  _rl_screenchars = _rl_screenwidth * _rl_screenheight; </code></pre></td>
 </tr>
 <tr>
 <td><pre><code class="language-c">} </code></pre></td>
