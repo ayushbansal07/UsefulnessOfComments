@@ -118,6 +118,7 @@ StanFordParser/
 *.png
 nohup.out
 ML/ann codes/0
-crowdsorucing/codes/
-crowdsorucing/codes_output/
-crowdsorucing/webapp/
+crowdsourcing/codes/
+crowdsourcing/codes_output/
+crowdsourcing/webapp/
+survey/output
